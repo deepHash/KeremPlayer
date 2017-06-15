@@ -14,6 +14,7 @@ var mongoose = require('mongoose'),
             name: String,
             photo: String,
             song: [Number]
+        }
     }, {collection: 'User'});
     
 var User = mongoose.model('User', UserSchema);

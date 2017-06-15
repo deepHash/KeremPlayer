@@ -9,7 +9,6 @@ mongoose.connect(consts.MLAB_KEY);
 var conn = mongoose.connection;
 
 class Player {
-
     constructor(){
         conn.on('error',
         (err) => {
@@ -18,16 +17,35 @@ class Player {
     }
 
     getAllArtists(type) {
-        console.log("in this func");
         return new Promise((resolve, reject) => {
-            Artist.find({}, '-_id',
+            Artist.find({musictype: `${type}`}, '-_id',
                 (err, result) => {
                     if (err) reject (err);
                     else resolve (result);
-                    console.log(result);
-                })
-        })
+                });
+        });
     }
+    
+    getArtistByName(name) {
+        return new Promise((resolve, reject) => {
+            Artist.find({name: `${name}`}, '-_id',
+                (err, result) => {
+                    if (err) reject (err);
+                    else resolve (result);
+                });
+        });
+    }
+
+    getMixByUserID(user_id, mix_id) {
+        return new Promise((resolve, reject) => {
+            User.find({id: `${user_id}`, 'mixes.id': `${mix_id}`}, '-_id',
+                (err, result) => {
+                    if (err) reject (err);
+                    else resolve (result);
+                });
+        });
+    }
+
 }
 
 module.exports = () => {
