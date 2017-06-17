@@ -42,11 +42,22 @@ app.get('/getMixByUserID/:user_id/:mix_id', (req,res,next) => {
     });
 });
 
+app.get('/addLike/:song_id', (req,res) => {
+        data.addLike(req.params.song_id).then((result,error) => {
+        res.status(200).json(result);
+    }, (error) => {
+        console.log(error);
+        next();
+    });
+});
 
 
 app.all('*', (req, res) => {
     res.send(`error: route not found, global handler`);
 });
 
+
+
 app.listen(port);
 console.log(`listening on port ${port}`);
+
