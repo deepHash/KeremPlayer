@@ -42,6 +42,21 @@ app.get('/getMixByUserID/:user_id/:mix_id', (req,res,next) => {
     });
 });
 
+//
+app.get('/getSongsByArtist/:name', (req,res) => {
+    res.send(data.getSongsByArtist(req.params.name));
+});
+
+app.get('/removeSongFromMix/:user_id/:mix_id/:song_id', (req,res,next) => {
+    data.removeSongFromMix(req.params.user_id, req.params.mix_id, 
+                            req.params.song_id).then((result,error) => {
+        res.status(200).json(result);
+    }, (error) => {
+        console.log(error);
+        next();
+    });    
+})
+
 
 
 app.all('*', (req, res) => {
