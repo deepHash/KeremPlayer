@@ -50,6 +50,9 @@ app.get('/getSongsByArtist/:name', (req,res) => {
 app.get('/removeSongFromMix/:user_id/:mix_id/:song_id', (req,res,next) => {
     data.removeSongFromMix(req.params.user_id, req.params.mix_id, 
                             req.params.song_id).then((result,error) => {
+
+app.get('/addLike/:song_id', (req,res) => {
+        data.addLike(req.params.song_id).then((result,error) => {
         res.status(200).json(result);
     }, (error) => {
         console.log(error);
@@ -58,10 +61,12 @@ app.get('/removeSongFromMix/:user_id/:mix_id/:song_id', (req,res,next) => {
 })
 
 
-
 app.all('*', (req, res) => {
     res.send(`error: route not found, global handler`);
 });
 
+
+
 app.listen(port);
 console.log(`listening on port ${port}`);
+

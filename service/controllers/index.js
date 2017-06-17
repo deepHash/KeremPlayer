@@ -69,7 +69,55 @@ class Player {
         });
     };
 
-}
+    addLike(song_id) {
+        return new Promise((resolve, reject) => {
+            Artist.update(
+                { 'songs.id' : `${song_id}` },
+                {$set:{'songs.$.likes': 10}},
+                (err, result) => {
+                    if (err) reject (err);
+                    else resolve (result);
+                });
+       });
+    }
+// addLike(song_id) {
+//         return new Promise((resolve, reject) => {
+//             Artist.update(
+//                 for(let i in Artist)
+//                 {
+//                     if
+//                 }
+//                 { 'songs[].id' : `${song_id}` },
+//                 {$set:{'songs[].likes' : 0}},
+//                 (err, result) => {
+//                     if (err) reject (err);
+//                     else resolve (result);
+//                 });
+//        });
+//     }
+
+       // { $inc: { "likes" : 1 } }
+ // Artist.update(
+ //                { 'songs[].id' : `${song_id}` },
+ //                {$set:{'songs[].likes' : 0}},
+ //                (err, result) => {
+ //                    if (err) reject (err);
+ //                    else resolve (result);
+ //                });
+
+ }   //    var condition = {name:`${name}`},
+    //    update         = {'likes': 4};
+    //    Artist.update(conditions ,likes
+    //     (err) => {
+    //         if(err)
+
+    //     } 
+    //     );
+    // }
+
+
+
+
 
 module.exports = () => {
     var player = new Player();
