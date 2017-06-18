@@ -9,12 +9,12 @@ var mongoose = require('mongoose'),
         password: String,
         musictype: String,
         favourites: [String],
-        mixes: {
+        mixes: [{
             id: {type:Number, index:1, required:true, unique:true},
             name: String,
             photo: String,
             song: [Number]
-        }
+        }]
     }, {collection: 'User'});
     
 var User = mongoose.model('User', UserSchema);

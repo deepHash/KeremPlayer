@@ -35,7 +35,7 @@ class Player {
                     else resolve (result);
                 });
         });
-    }
+    };
 
     getMixByUserID(user_id, mix_id) {
         return new Promise((resolve, reject) => {
@@ -48,20 +48,19 @@ class Player {
     };
 
     getSongsByArtist(name) {
-        var songs;
-        Artist.find({name: `${name}`}, (err, result) => {
-            this.songs = result[0].songs;
-            
-        }, (err) => {
-            console.log(err);
+        return new Promise((resolve, reject) => {
+            Artist.find({name: `${name}`},
+                (err, result) => {
+                    if (err) reject (err);
+                    else resolve (result[0].songs);
+                });
         });
-        return (this.songs);
     };
 
     removeSongFromMix(user_id, mix_id, song_id) {
         return new Promise((resolve, reject) => {
             User.update({id: `${user_id}`, 'mixes.id': `${mix_id}`},
-                        { $pull: {'mixes.song': `${song_id}`}},
+                        { $pull: {'mixes.$.song': `${song_id}`}},
                 (err, result) => {
                     if (err) reject (err);
                     else resolve (result);
@@ -72,51 +71,15 @@ class Player {
     addLike(song_id) {
         return new Promise((resolve, reject) => {
             Artist.update(
-                { 'songs.id' : `${song_id}` },
-                {$set:{'songs.$.likes': 10}},
+                { 'songs.id': `${song_id}` },
+                {$inc:{'songs.$.likes': 1}},
                 (err, result) => {
                     if (err) reject (err);
                     else resolve (result);
                 });
        });
     }
-// addLike(song_id) {
-//         return new Promise((resolve, reject) => {
-//             Artist.update(
-//                 for(let i in Artist)
-//                 {
-//                     if
-//                 }
-//                 { 'songs[].id' : `${song_id}` },
-//                 {$set:{'songs[].likes' : 0}},
-//                 (err, result) => {
-//                     if (err) reject (err);
-//                     else resolve (result);
-//                 });
-//        });
-//     }
-
-       // { $inc: { "likes" : 1 } }
- // Artist.update(
- //                { 'songs[].id' : `${song_id}` },
- //                {$set:{'songs[].likes' : 0}},
- //                (err, result) => {
- //                    if (err) reject (err);
- //                    else resolve (result);
- //                });
-
- }   //    var condition = {name:`${name}`},
-    //    update         = {'likes': 4};
-    //    Artist.update(conditions ,likes
-    //     (err) => {
-    //         if(err)
-
-    //     } 
-    //     );
-    // }
-
-
-
+ } 
 
 
 module.exports = () => {
