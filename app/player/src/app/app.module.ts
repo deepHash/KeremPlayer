@@ -7,13 +7,21 @@ import { AppComponent } from './app.component';
 import { WrapperComponent } from './wrapper/wrapper.component';
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './header/header.component';
+import { PlayerContainerComponent } from './player-container/player-container.component';
+import { PlayerHeaderComponent } from './player-container/player-header/player-header.component';
+import { PlayerMainComponent } from './player-container/player-main/player-main.component';
+import { PlayerNavComponent } from './player-container/player-nav/player-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WrapperComponent,
     MainComponent,
-    HeaderComponent
+    HeaderComponent,
+    PlayerContainerComponent,
+    PlayerHeaderComponent,
+    PlayerMainComponent,
+    PlayerNavComponent
   ],
   imports: [
     BrowserModule,
