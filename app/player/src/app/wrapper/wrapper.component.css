@@ -1,0 +1,10 @@
+main {
+    background-image: url('/assets/bg.jpg');
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+#decorations.img {
+    min-height: 100%;
+    max-width: 100%;
+}
