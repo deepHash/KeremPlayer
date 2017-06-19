@@ -8,10 +8,10 @@ export class PlayerService {
 
     private artist: Artist[] = [];
 
-    constructor(private http: Http) {}
+    constructor(private http: Http) {this.getArtists();}
 
     private getArtistsDataFromDB() {
-        this.http.get('localhost:3000/getAllArtists/new')
+        this.http.get('http://localhost:3000/getAllArtists/new')
             .subscribe(
                 (response: Response) => {
                     this.artist = response.json();
@@ -19,7 +19,7 @@ export class PlayerService {
                     console.log(this.artist);
                 })
     }
-
+    
     getArtists() {
         this.getArtistsDataFromDB();
         return this.artist.slice();
