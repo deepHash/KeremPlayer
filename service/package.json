@@ -1,13 +1,21 @@
 {
-  "name": "service",
+  "name": "player",
   "version": "1.0.0",
-  "description": "",
+  "description": "web service for Kerem player project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepHash/KeremPlayer.git"
+  },
+  "author": "Yotam Akshota and Igal Tsesis",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deepHash/KeremPlayer/issues"
+  },
+  "homepage": "https://github.com/deepHash/KeremPlayer#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",

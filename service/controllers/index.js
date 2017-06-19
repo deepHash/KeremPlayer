@@ -1,21 +1,11 @@
 'use strict';
-const   consts   = require('./data/consts'),
-        mongoose = require('mongoose'),
+const   mongoose = require('mongoose'),
         Artist   = require('./../models/artist'),
         User     = require('./../models/user'),
         promise  = require('promise');
 
-mongoose.Promise = global.Promise;
-mongoose.connect(consts.MLAB_KEY);
-var conn = mongoose.connection;
-
 class Player {
-    constructor(){
-        conn.on('error',
-        (err) => {
-            console.log(`connection error: ${err}`);
-        });     
-    };
+    constructor() {    };
 
     getAllArtists(type) {
         return new Promise((resolve, reject) => {
