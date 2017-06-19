@@ -19,6 +19,7 @@ export class PlayerService {
                     console.log(this.artist);
                 })
     }
+    
     getArtists() {
         this.getArtistsDataFromDB();
         return this.artist.slice();
