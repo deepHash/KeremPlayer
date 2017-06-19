@@ -81,6 +81,23 @@ app.get('/addLike/:song_id', (req,res) => {
     });    
 });
 
+app.get('/getSong/:song_id', (req,res) => {
+        data.getSong(req.params.song_id).then((result,error) => {
+        res.status(200).json(result);
+    }, (error) => {
+        console.log(error);
+        next();
+    });    
+});
+
+app.get('/getSongsFromMix/:user_id/:mix_id', (req,res) => {
+        data.getSongsFromMix(req.params.user_id, req.params.mix_id).then((result,error) => {
+        res.status(200).json(result);
+    }, (error) => {
+        console.log(error);
+        next();
+    });    
+});
 
 app.all('*', (req, res) => {
     res.send(`error: route not found, global handler`);

@@ -47,6 +47,27 @@ class Player {
         });
     };
 
+    getSong(song_id) {
+        return new Promise((resolve, reject) => {
+            Artist.findOne({'songs.id': `${song_id}`},
+                (err, result) => {
+                    if (err) reject (err);
+                    else {
+                        if (!result)
+                            resolve(err);
+                        else
+                        {
+                            let songs = result._doc.songs;
+                            for (let i in songs){
+                                if (songs[i].id == song_id)
+                                    resolve(songs[i]);
+                            }    
+                        }
+                    } 
+                });
+        });
+    };
+
     removeSongFromMix(user_id, mix_id, song_id) {
         return new Promise((resolve, reject) => {
             User.update({id: `${user_id}`, 'mixes.id': `${mix_id}`},
