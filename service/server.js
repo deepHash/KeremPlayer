@@ -99,6 +99,15 @@ app.get('/getSongsFromMix/:user_id/:mix_id', (req,res) => {
     });    
 });
 
+app.get('/getBestSongByArtist/:name', (req,res,next) => {
+    data.getBestSongByArtist(req.params.name).then((result,error) => {
+        res.status(200).json(result);
+    }, (error) => {
+        console.log(error);
+        next();
+    });
+});
+
 app.all('*', (req, res) => {
     res.send(`error: route not found, global handler`);
 });
