@@ -136,6 +136,31 @@ class Player {
                 });
        });
     }
+
+    getBestSongByArtist(name) {
+        return new Promise((resolve, reject) => {
+            Artist.find({name: `${name}`}, 'songs -_id',
+                (err, result) => {
+                    if (err) reject (err);
+                    else{
+                        console.log(result[0].songs[1]);
+                        var max = -1,
+                        bestSong;
+                        for(let i in result[0].songs){
+                            if(result[0].songs[i].likes > max)
+                            {
+                                max = result[0].songs[i].likes;
+                                bestSong = result[0].songs[i];
+                                console.log(bestSong);
+
+                            }
+                        }
+                        resolve (bestSong);
+                    } 
+                        
+                });
+        });
+    };
  } 
 
 
