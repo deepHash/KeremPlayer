@@ -42,6 +42,16 @@ app.get('/getArtistByName/:name', (req,res,next) => {
     });
 });
 
+//route to get an artist info by a song id
+app.get('/getArtistBySong/:song_id', (req,res,next) => {
+    data.getArtistBySong(req.params.song_id).then((result,error) => {
+        res.status(200).json(result);
+    }, (error) => {
+        console.log(error);
+        next();
+    });
+});
+
 //gets a users mix, params: user_id, mix_id
 app.get('/getMixByUserID/:user_id/:mix_id', (req,res,next) => {
     data.getMixByUserID(req.params.user_id, req.params.mix_id).then((result,error) => {
@@ -52,7 +62,7 @@ app.get('/getMixByUserID/:user_id/:mix_id', (req,res,next) => {
     });
 });
 
-//
+//gets song by the artist name, params: name
 app.get('/getSongsByArtist/:name', (req,res,next) => {
     data.getSongsByArtist(req.params.name).then((result,error) => {
         res.status(200).json(result);
@@ -62,6 +72,7 @@ app.get('/getSongsByArtist/:name', (req,res,next) => {
     });
 });
 
+//removes a song from a users mix, params: user_id, mix_id, song_id
 app.get('/removeSongFromMix/:user_id/:mix_id/:song_id', (req,res,next) => {
     data.removeSongFromMix(req.params.user_id, req.params.mix_id, 
                             req.params.song_id).then((result,error) => {
@@ -72,6 +83,7 @@ app.get('/removeSongFromMix/:user_id/:mix_id/:song_id', (req,res,next) => {
     });    
 });
 
+//increment a like by 1 in a spesific song, params: song_id
 app.get('/addLike/:song_id', (req,res) => {
         data.addLike(req.params.song_id).then((result,error) => {
         res.status(200).json(result);
@@ -81,6 +93,7 @@ app.get('/addLike/:song_id', (req,res) => {
     });    
 });
 
+//gets a song
 app.get('/getSong/:song_id', (req,res) => {
         data.getSong(req.params.song_id).then((result,error) => {
         res.status(200).json(result);
@@ -90,6 +103,7 @@ app.get('/getSong/:song_id', (req,res) => {
     });    
 });
 
+//gets the songs ids of a spesific users mix, params: user_id, mix_id
 app.get('/getSongsFromMix/:user_id/:mix_id', (req,res) => {
         data.getSongsFromMix(req.params.user_id, req.params.mix_id).then((result,error) => {
         res.status(200).json(result);
@@ -99,6 +113,7 @@ app.get('/getSongsFromMix/:user_id/:mix_id', (req,res) => {
     });    
 });
 
+//error 404 route
 app.all('*', (req, res) => {
     res.send(`error: route not found, global handler`);
 });

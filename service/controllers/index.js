@@ -27,6 +27,16 @@ class Player {
         });
     };
 
+    getArtistBySong(song_id) {
+        return new Promise((resolve, reject) => {
+            Artist.find({'songs.id': song_id}, '-songs -_id',
+                (err, result) => {
+                    if (err) reject (err);
+                    else resolve (result);
+                });
+        });
+    };
+
     getMixByUserID(user_id, mix_id) {
         return new Promise((resolve, reject) => {
             User.find({id: `${user_id}`, 'mixes.id': `${mix_id}`}, '-_id',
@@ -36,6 +46,33 @@ class Player {
                 });
         });
     };
+
+    getSongsFromMix(user_id, mix_id) {
+        return new Promise((resolve, reject) => {
+            User.findOne({id: `${user_id}`, 'mixes.id': `${mix_id}`}, 'mixes -_id',
+                (err, result) => {
+                    if (err) reject (err);
+                    else {
+                        if (!result)
+                            resolve(err);
+                        else
+                        {   
+                            //ToDo 20/06/207 - fix the bug that findOne gets all the mixes from user
+                            //the following code is a plaster to pick the mix with mix_id
+                            let mix = [];
+                            for (let i in result.mixes)
+                                if (result.mixes[i].id == mix_id){
+                                    mix = result.mixes[i].song;
+                                    break;
+                                }
+                               
+                        }
+                    }
+                });
+        });
+    };    
+
+
 
     getSongsByArtist(name) {
         return new Promise((resolve, reject) => {
