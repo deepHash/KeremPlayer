@@ -5,7 +5,6 @@ const   mongoose = require('mongoose'),
         promise  = require('promise');
 
 class Player {
-    constructor() {    };
 
     getAllArtists(type) {
         return new Promise((resolve, reject) => {
@@ -30,6 +29,16 @@ class Player {
     getArtistBySong(song_id) {
         return new Promise((resolve, reject) => {
             Artist.find({'songs.id': song_id}, '-songs -_id',
+                (err, result) => {
+                    if (err) reject (err);
+                    else resolve (result);
+                });
+        });
+    };
+
+    getUserByMail(user_email) {
+        return new Promise((resolve, reject) => {
+            User.findOne({mail: user_email}, '-_id -mixes',
                 (err, result) => {
                     if (err) reject (err);
                     else resolve (result);

@@ -22,6 +22,13 @@ app.get('/', (req,res) => {
     res.send("hi in index");
 });
 
+//route to get the user info, params: user_email
+app.get('/getUserByMail/:user_email', (req,res) => {
+    data.getUserByMail(req.params.user_email).then((result,error) => {
+        res.status(200).json(result);
+    });
+});
+
 //route to get all the artists by type
 app.get('/getAllArtists/:type', (req,res,next) => {
     data.getAllArtists(req.params.type).then((result,error) => {
