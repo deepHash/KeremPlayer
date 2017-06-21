@@ -85,7 +85,7 @@ class Player {
                             let mix = [];
                             for (let i in result.mixes){ 
                                 if (result.mixes[i].id == mix_id){
-                                    mix = result.mixes[i].song;
+                                    mix = result.mixes[i];
                                     break;
                                 }
                             }
@@ -94,9 +94,7 @@ class Player {
                     }
                 });
         });
-    };    
-
-
+    };
 
     getSongsByArtist(name) {
         return new Promise((resolve, reject) => {

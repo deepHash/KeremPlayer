@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <title>Bakerem API</title>
+    </head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center"><span class="text-primary">Bakerem API</span></h1>
+            <img src="include/icon.jpeg" alt="..." class="img-circle">
+        </div>
+
+            <div class="panel panel-primary">
+
+                    <div class="panel-heading"><h3>Get User By Mail:</h3></div>
+
+                    <div class="panel-body">
+                              This is a <b>GET</b> route. find user from database by mail<br><br>
+                              key: mail<br>
+                              values: string<br>
+                             <a href="https://kerem2017.herokuapp.com/getUserByMail">
+                                https://kerem2017.herokuapp.com/getUserByMail
+                            </a>
+                            <br>
+                            
+                            <h4><span class="label label-success">example of success message by json view(/yotam023@gmail.com)</span></h4>
+                            <p>[<br>
+                                    &emsp;{<br>
+                                    &emsp;&emsp;&emsp;"id": 2,<br>
+                                    &emsp;&emsp;&emsp;"name": "Yotam Akshota",<br>
+                                    &emsp;&emsp;&emsp;"mail": "yotam023@gmail.com",<br>
+                                    &emsp;&emsp;&emsp;"password": "123",<br>
+                                    &emsp;&emsp;&emsp;"musictype": "new",<br>
+                                    &emsp;&emsp;&emsp;"favorites": "[]",<br>
+                                    &emsp;}<br>
+                                ]</p>
+                    </div>
+                     
+
+                    <div class="panel-heading"> <h3>Get All Artists</h3></div>
+
+                     <div class="panel-body">
+                            This is a <b>GET</b> route. find all artists by type </br>
+                            key: musictype<br>
+                            values: new or classic<br>
+                         <a href="https://kerem2017.herokuapp.com/getAllArtists">
+                            https://kerem2017.herokuapp.com/getAllArtists
+                        </a>
+                    </div>
+
+                    <div class="panel-heading"> <h3>Get Artist By Name</h3></div>
+
+                    <div class="panel-body">
+                         This is a <b>GET</b> route. find artist by name</br>
+                            key: name<br>
+                            values: string <br>
+                        <a href="https://kerem2017.herokuapp.com/getArtistByName/">
+                            https://kerem2017.herokuapp.com/getArtistByName/
+                        </a>
+                          <h4><span class="label label-success">example of success message by json view (/שרית חדד)</span></h4>
+                        <p>[</br>
+                                &emsp;{</br>
+                                &emsp;&emsp;&emsp;"name": "שרית חדד",</br>
+                                &emsp;&emsp;&emsp;"photo": "../path/morepath/otherpath/",</br>
+                                &emsp;&emsp;&emsp;"musictype": "new",</br>
+                                &emsp;&emsp;&emsp;"songs": [</br>
+                                &emsp;&emsp;&emsp;{</br>
+                                &emsp;&emsp;&emsp;&emsp;  "id": "7",</br>
+                                &emsp;&emsp;&emsp;&emsp;  "name": "בת של מלך",</br>
+                                &emsp;&emsp;&emsp;&emsp;  "likes": "45"</br>
+                                &emsp;&emsp;&emsp;}</br>
+                                &emsp;&emsp;&emsp;{</br>
+                                &emsp;&emsp;&emsp;&emsp;  "id": "8",</br>
+                                &emsp;&emsp;&emsp;&emsp;  "name": "מימי",</br>
+                                &emsp;&emsp;&emsp;&emsp;  "likes": "30"</br>
+                                &emsp;&emsp;&emsp;}</br>
+                                &emsp;&emsp;&emsp;{</br>
+                                &emsp;&emsp;&emsp;&emsp;  "id": "9",</br>
+                                &emsp;&emsp;&emsp;&emsp;  "name": "סינגל",</br>
+                                &emsp;&emsp;&emsp;&emsp;  "likes": "19"</br>
+                                &emsp;&emsp;&emsp;}</br>
+                                &emsp;&emsp;&emsp;]</br>
+                                &emsp;}</br>
+                            ]</p>
+                    </div>
+
+                    <div class="panel-heading"><h3>Get Artist By Song</h3></div>
+                    <div class="panel-body">
+                         This is a <b>GET</b> route. find artists by song id </br>
+                            key: id<br>
+                            values: number<br>
+                         <a href="https://kerem2017.herokuapp.com/getArtistBySong">
+                            https://kerem2017.herokuapp.com/getArtistBySong
+                        </a>
+                  </div>
+
+                    <div class="panel-heading"> <h3>Get Mix By User ID</h3></div>
+                    <div class="panel-body">
+                         This is a <b>GET</b> route. find Mix by user id and mix id </br>
+                            key(user): id<br>
+                            values: number<br>
+                            key(mix): id<br>
+                            values: number<br>
+                         <a href="https://kerem2017.herokuapp.com/getMixByUserID">
+                            https://kerem2017.herokuapp.com/getMixByUserID
+                        </a>
+                    </div>
+
+                     <div class="panel-heading"> <h3>Get Songs By Artist</h3></div>
+                    <div class="panel-body">
+                        <h3>Get Songs By Artist</h3>
+                         This is a <b>GET</b> route. find Songs by artist name </br>
+                            key: name<br>
+                            values: string<br>
+                         <a href="https://kerem2017.herokuapp.com/getSongsByArtist">
+                            https://kerem2017.herokuapp.com/getSongsByArtist
+                        </a>
+                        <h4><span class="label label-success">example of success message by json view (/משה פרץ)</span></h4>
+                        <p>[</br>
+                              &emsp;&emsp;&emsp;{</br>
+                                &emsp;&emsp;&emsp;&emsp;  "id": "15",</br>
+                                &emsp;&emsp;&emsp;&emsp;  "name": "זיקוקים",</br>
+                                &emsp;&emsp;&emsp;&emsp;  "likes": "25"</br>
+                                &emsp;&emsp;&emsp;}</br>
+                                &emsp;&emsp;&emsp;{</br>
+                                &emsp;&emsp;&emsp;&emsp;  "id": "16",</br>
+                                &emsp;&emsp;&emsp;&emsp;  "name": "אם זאת מלחמה",</br>
+                                &emsp;&emsp;&emsp;&emsp;  "likes": "65"</br>
+                                &emsp;&emsp;&emsp;}</br>
+                                &emsp;&emsp;&emsp;{</br>
+                                &emsp;&emsp;&emsp;&emsp;  "id": "17",</br>
+                                &emsp;&emsp;&emsp;&emsp;  "name": "היא רק רוצה לרקוד",</br>
+                                &emsp;&emsp;&emsp;&emsp;  "likes": "19"</br>
+                                &emsp;&emsp;&emsp;}</br>
+                            ]</p>
+                    </div>
+                    
+                    <div class="panel-heading"> <h3>Remove Song From Mix</h3></div>
+                    <div class="panel-body">
+                         This is a <b>GET</b> route. find song from mix by user id and mix id and song id and remove from json of user </br>
+                            key(user): id<br>
+                            values: number<br>
+                            key(mix): id<br>
+                            values: number<br>
+                            key(song): id<br>
+                            values: number<br>
+                         <a href="https://kerem2017.herokuapp.com/removeSongFromMix">
+                            https://kerem2017.herokuapp.com/removeSongFromMix
+                        </a>
+                    </div>
+
+                    <div class="panel-heading"> <h3>Add Like</h3></div>
+                    <div class="panel-body">
+                         This is a <b>GET</b> route. find song by id and increase the likes in DB </br>
+                            key(song): id<br>
+                            values: number<br>
+                         <a href="https://kerem2017.herokuapp.com/addLike/">
+                            https://kerem2017.herokuapp.com/addLike/
+                        </a>
+                    </div>
+                    
+                    <div class="panel-heading"> <h3>Get Song</h3></div>
+                    <div class="panel-body">
+                         This is a <b>GET</b> route. find song by song id </br>
+                            key(song): id<br>
+                            values: number<br>
+                         <a href="https://kerem2017.herokuapp.com/getSong">
+                            https://kerem2017.herokuapp.com/getSong
+                        </a>
+                    </div>
+                    
+                    <div class="panel-heading"> <h3>Get Songs From Mix</h3></div>
+                    <div class="panel-body">
+                         This is a <b>GET</b> route. find songs id by user id and mix id </br>
+                            key(user): id<br>
+                            values: number<br>
+                            key(mix): id<br>
+                            values: number<br>
+                         <a href="https://kerem2017.herokuapp.com/getSongsFromMix">
+                            https://kerem2017.herokuapp.com/getSongsFromMix
+                        </a>
+                    </div>
+
+                      <div class="panel-heading"><h3>Get Best Song By Artist</h3></div>
+                     <div class="panel-body">
+                        <h3></h3>
+                         This is a <b>GET</b> route. find the song with the most lieks of artist by artist name </br>
+                            key: name<br>
+                            values: string<br>
+                         <a href="https://kerem2017.herokuapp.com/getBestSongByArtist">
+                            https://kerem2017.herokuapp.com/getBestSongByArtist
+                        </a>
+                    </div>
+          </div>
+    </div>
+</body>
+</html>

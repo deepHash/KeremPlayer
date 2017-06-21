@@ -6,9 +6,10 @@ var mongoose = require('mongoose'),
         photo: String,
         musictype: String,
         songs:[{ 
-            id: {type:Number, index:1, required:true, unique:true},
+            id: {type:Number},
             name: String,
-            likes: Number
+            likes: Number,
+            duration: String
         }]
     }, {collection: 'Artist'});
 
