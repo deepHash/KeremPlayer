@@ -1,27 +1,23 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Http, Response, Headers} from '@angular/http';
-import { Artist } from '../shared/artist.model';
+import { Mix } from '../shared/mix.model';
+import { Song } from '../shared/song.model';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PlayerService {
-    itemAdded = new EventEmitter<Artist[]>();
+    mixes: Mix;
+    constructor(private http: Http) {
 
-    private artist: Artist[] = [];
-
-    constructor(private http: Http) {this.getArtists();}
-
-    private getArtistsDataFromDB() {
-        this.http.get('http://localhost:3000/getAllArtists/new')
-            .subscribe(
-                (response: Response) => {
-                    this.artist = response.json();
-                    this.itemAdded.next(this.artist.slice());
-                    console.log(this.artist);
-                })
     }
     
-    getArtists() {
-        this.getArtistsDataFromDB();
-        return this.artist.slice();
+    getArtists(type) {
+        return this.http.get('https://kerem2017.herokuapp.com/getAllArtists/' + type)
+            .map(res => res.json());
+    }
+
+    getArtistbyName(name) {
+        return this.http.get('https://kerem2017.herokuapp.com/getArtistbyName/%D7%A9%D7%A8%D7%99%D7%AA%20%D7%97%D7%93%D7%93')
+            .map(res => res.json());
     }
 }
