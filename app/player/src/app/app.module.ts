@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { routes } from './app.routes';
 import { AppComponent } from './app.component';
 import { WrapperComponent } from './wrapper/wrapper.component';
 import { MainComponent } from './main/main.component';
@@ -26,7 +26,8 @@ import { PlayerNavComponent } from './player-container/player-nav/player-nav.com
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routes
   ],
   providers: [],
   bootstrap: [AppComponent]

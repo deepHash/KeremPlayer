@@ -9,6 +9,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.set('port',port);
+//api
+app.get('/', (req,res) => {
+            res.sendFile(`${__dirname}/public/api.html`);
+}); 
+//api logo
+app.get('/include/icon.jpeg', (req,res) => {
+    res.sendFile(`${__dirname}/public/include/icon.jpeg`);
+});
+
 app.use(
     (req,res,next) => {
         res.header("Access-Control-Allow-Origin", "*");
@@ -16,10 +25,6 @@ app.use(
                 "Origin, X-Requested-With, Content-Type, Accept");
         res.set("Content-Type", "application/json");
         next();
-});
-
-app.get('/', (req,res) => {
-    res.send("hi in index");
 });
 
 //route to get the user info, params: user_email

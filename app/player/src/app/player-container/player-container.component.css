@@ -1,0 +1,17 @@
+body {
+    background-color: #202528;
+    height: 100%;
+    width: 100%;
+    padding-top: 15px;
+}
+
+#decorations {
+    background-image: url('/assets/decorations.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    margin: 0;
+}
