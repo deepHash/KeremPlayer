@@ -11,7 +11,7 @@ import { PlayerMainComponent } from './player-container/player-main/player-main.
 import { SimilarArtistsComponent } from './player-container/similar-artists/similar-artists.component';
 
 export const router: Routes = [
-    { path: '', redirectTo: 'player-container', pathMatch: 'full'},
+    { path: '', redirectTo: 'main', pathMatch: 'full'},
     { path: 'header', component: HeaderComponent},
     { path: 'main', component: MainComponent},
     { path: 'player-header', component: PlayerHeaderComponent},
