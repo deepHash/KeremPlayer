@@ -13,6 +13,7 @@ import { PlayerMainComponent } from './player-container/player-main/player-main.
 import { PlayerNavComponent } from './player-container/player-nav/player-nav.component';
 import { JoinComponent } from './main/join/join.component';
 import { UserDetailsComponent } from './main/user-details/user-details.component';
+import { SimilarArtistsComponent } from './player-container/similar-artists/similar-artists.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UserDetailsComponent } from './main/user-details/user-details.component
     PlayerMainComponent,
     PlayerNavComponent,
     JoinComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    SimilarArtistsComponent
   ],
   imports: [
     BrowserModule,

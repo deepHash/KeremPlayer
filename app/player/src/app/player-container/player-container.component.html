@@ -1,6 +1,18 @@
-<body>
+<body class="container">
     <div id="decorations">
         <app-header></app-header>
-        <player-main></player-main>        
+        <div class="row">
+            <div class="col">
+                <app-player-header></app-player-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9 left">
+                <player-main></player-main>
+            </div>
+            <div class="col-md-3 left">
+                <app-player-nav></app-player-nav>
+            </div>
+        </div>         
     </div>
 </body>
