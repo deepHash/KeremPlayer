@@ -27,7 +27,6 @@ export class PlayerMainComponent {
         this.playerService.getArtistbyName("שרית חדד")
             .subscribe(singleArtist => {
                 this.singleArtist = singleArtist;
-                console.log(singleArtist);
             });
 
         // this.playerService.getMixByUserID(1,1)

@@ -1,0 +1,12 @@
+ul {
+    text-align: right;
+    text-decoration-style: none;
+    list-style-type: none;
+    color: #fff;
+}
+
+.bullet {
+    content: url('/assets/player/bullet.png');
+    width: 19px;
+    height: 19px;
+}

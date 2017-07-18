@@ -3,15 +3,18 @@ body {
     height: 100%;
     width: 100%;
     padding-top: 15px;
+    text-align: right;
 }
 
 #decorations {
     background-image: url('/assets/decorations.png');
-    background-size: cover;
+    background-size: 100%;
     background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
+    /*background-position: center;*/
     padding-top: 15px;
     padding-bottom: 10px;
-    margin: 0;
+}
+
+.left {
+    float:left;
 }

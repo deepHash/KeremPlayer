@@ -11,6 +11,7 @@ import { PlayerContainerComponent } from './player-container/player-container.co
 import { PlayerHeaderComponent } from './player-container/player-header/player-header.component';
 import { PlayerMainComponent } from './player-container/player-main/player-main.component';
 import { PlayerNavComponent } from './player-container/player-nav/player-nav.component';
+import { SimilarArtistsComponent } from './player-container/similar-artists/similar-artists.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PlayerNavComponent } from './player-container/player-nav/player-nav.com
     PlayerContainerComponent,
     PlayerHeaderComponent,
     PlayerMainComponent,
-    PlayerNavComponent
+    PlayerNavComponent,
+    SimilarArtistsComponent
   ],
   imports: [
     BrowserModule,
