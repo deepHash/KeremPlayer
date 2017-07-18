@@ -3,10 +3,22 @@ ul {
     text-decoration-style: none;
     list-style-type: none;
     color: #fff;
+    padding-top: 1em;
+}
+
+ul li {
+    padding-bottom: 2em;
+    padding-right: 2em;
+}
+
+ul li:hover {
+    color: #fbb040;
+    font-weight: bold;
 }
 
 .bullet {
     content: url('/assets/player/bullet.png');
+    float:right;
     width: 19px;
     height: 19px;
 }

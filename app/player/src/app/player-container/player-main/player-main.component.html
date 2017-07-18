@@ -1,8 +1,9 @@
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col">
                 <table class="table">
                     <thead>
                       <tr>
+                        <th></th>
                         <th>לייקים</th>
                         <th>זמן</th>
                         <th>שיר</th>
@@ -10,11 +11,15 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let artist of artists">
+                      <tr *ngFor="let artist of artists; let i = 'index + 1'">
+                        <td><button type="button" class="btn btn-warning btn-xs" aria-label="Right Align">
+                                הסר <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span> 
+                            </button>    
+                        </td>
                         <td>{{artist.songs[0].likes}}</td>
                         <td>{{artist.songs[0].duration}}</td>
                         <td>{{artist.songs[0].name}}</td>
-                        <td>{{artist.name}}</td>
+                        <td>{{artist.name}}<span>.{{i}}</span></td>
                       </tr>
                     </tbody>
                   </table>

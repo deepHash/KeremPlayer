@@ -24,4 +24,14 @@ export class PlayerService {
         return this.http.get(`${this.apiUrl}/getMixByUserId/${userID}/${mixID}`)
             .map(res => res.json());
     }
+
+    getSongByID(id) {
+        return this.http.get(`${this.apiUrl}/getSong/${id}`)
+            .map(res => res.json());
+    }
+
+    getArtistBySong(id) {
+        return this.http.get(`${this.apiUrl}/getArtistBySong/${id}`)
+            .map(res => res.json());
+    }
 }

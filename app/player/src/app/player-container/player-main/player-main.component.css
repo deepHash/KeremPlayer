@@ -1,9 +1,26 @@
-table{
+table {
     color: #ffffff;
     text-align: right;
 }
 
-th{
+td {
+    text-align: right;
+}
+
+th {
     color:#fbb040;
     text-align: right;
+}
+
+tr {
+    padding:2em;
+}
+
+td > span{
+    float: right;
+    padding-left: 3px;
+}
+
+.remove{
+    color:#515557;
 }

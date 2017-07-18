@@ -15,6 +15,8 @@ body {
     padding-bottom: 10px;
 }
 
-.left {
-    float:left;
+.mainWrapper {
+    margin-top: 5em;
+    margin-left: 30em;
+    margin-right: 25em;
 }
