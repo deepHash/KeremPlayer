@@ -15,9 +15,9 @@ export class PlayerMainComponent {
     artists: Artist[];
     singleArtist: Artist[];
     mixes: Mix;
-    songs: Song[] = [];
+    songs: Song = new Song(1,"ab","cd",3,"5:5");
     //
-    constructor (private playerService:PlayerService){
+    constructor (public playerService:PlayerService){
        
         this.playerService.getArtists("new")
             .subscribe(artists => {
@@ -29,18 +29,29 @@ export class PlayerMainComponent {
                 this.singleArtist = singleArtist;
             });
 
-        // this.playerService.getMixByUserID(1,1)
-        //     .subscribe(mixes => {
-        //         this.mixes = mixes;
-        //         console.log(this.mixes);
-        //     });
- 
-        // this.playerService.getSong(2)
-        //     .subscribe(song => {
-        //         console.log(song);
-        //         this.songs.push(song);
-        //     });                
+        this.playerService.getMixByUserID(1,1)
+            .subscribe(mixes => {
+                this.mixes = mixes;
+                this.buildSongList(); 
+            });     
 
-       
+    }
+    //will build a song list from the songs in mix
+    buildSongList() {
+        var artistNames: string[] = [];
+        for(let i = 0; i < this.mixes.song.length; i++){
+            this.playerService.getArtistBySong(this.mixes.song[i])
+                .subscribe(artist => {    
+                    //assigning all the names into an array
+                    artistNames[i] = artist[0].name;
+                });
+        }
+        for(let i = 0; i < this.mixes.song.length; i++){
+            this.playerService.getSongByID(this.mixes.song[i])
+                .subscribe(song => {
+                    //@ToDo: add new song in array by loop
+                });
+        }
+        console.log(artistNames);
     }  
 }

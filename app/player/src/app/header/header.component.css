@@ -1,18 +1,13 @@
 header{
     color: #ffffff;
-}
-
-section {
-
+    margin-right: 6em;
+    margin-left: 6em;
 }
 
 .col.right {
     float:right;
 }
 
-.clear {
-    clear:both;
-}
 
 #logo {
     content: url('/assets/header_logo.png');
@@ -27,10 +22,17 @@ section {
     background-color: #303437;
     padding-left: 25px;
     float:left;
+    border: none;
 }
 
 a{
     text-decoration: none;
     color: #fff;
     padding: 15px;
+}
+
+@media (min-width: 1200px) {
+    header{
+        margin-top: 2em;
+    }
 }
