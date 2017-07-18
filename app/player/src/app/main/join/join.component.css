@@ -1,23 +1,15 @@
-#decorations {
-    background-image: url('/assets/loginbg/bg1.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    width:  100%;
-    height: 100%;
-    padding-top: 15px;
-    margin: 0px;
-}
+
 
 .clearfix.wrapper {
     text-align: center;
 }
 button {
     margin: 0 auto;
-    margin-top: 35%;
-    /*margin-bottom: 40px; */
+    margin-top: 36%;
     width: 160px;
-    height: 38px;
+    height: 45px;
     border: solid 2px #ffffff ;
     background-color: black;
     color:#ffffff;
+    margin-bottom: 60px; 
 }

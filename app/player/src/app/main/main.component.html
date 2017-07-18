@@ -1,6 +1,7 @@
-<body>
+<body [ngClass]="bgClasses">
         <app-join (featureSelected)="pageStage($event)" 
-        *ngIf="loadedFeature === 'join'"></app-join>
+       ></app-join>
+      <!--   <p [ngClass]="test">hi</p> -->
         <app-user-details 
-        *ngIf ="loadedFeture ==='details'"></app-user-details>
+        *ngIf="loadedFeature === 'details'"></app-user-details>
 </body>

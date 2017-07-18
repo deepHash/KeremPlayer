@@ -10,7 +10,7 @@ export class JoinComponent implements OnInit {
 
     onSelect(feature:string) {
         this.featureSelected.emit(feature);
-        console.log("debug");
+        // console.log(feature);
     }
   constructor() { }
 

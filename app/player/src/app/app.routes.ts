@@ -9,11 +9,15 @@ import { PlayerHeaderComponent } from './player-container/player-header/player-h
 import { PlayerNavComponent } from './player-container/player-nav/player-nav.component';
 import { PlayerMainComponent } from './player-container/player-main/player-main.component';
 import { SimilarArtistsComponent } from './player-container/similar-artists/similar-artists.component';
+import { JoinComponent } from './main/join/join.component';
+import { UserDetailsComponent } from './main/user-details/user-details.component';
 
 export const router: Routes = [
     { path: '', redirectTo: 'main', pathMatch: 'full'},
     { path: 'header', component: HeaderComponent},
     { path: 'main', component: MainComponent},
+    { path: 'join', component: JoinComponent},
+    { path: 'user-details', component: UserDetailsComponent},
     { path: 'player-header', component: PlayerHeaderComponent},
     { path: 'player-nav', component: PlayerNavComponent},
     { path: 'player-main', component: PlayerMainComponent},
