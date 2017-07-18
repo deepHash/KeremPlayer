@@ -1,3 +1,6 @@
-<p>
-  main works!
-</p>
+<body>
+        <app-join (featureSelected)="pageStage($event)" 
+        *ngIf="loadedFeature === 'join'"></app-join>
+        <app-user-details 
+        *ngIf ="loadedFeture ==='details'"></app-user-details>
+</body>
