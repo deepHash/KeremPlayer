@@ -174,9 +174,28 @@ class Player {
                 });
         });
     };
- } 
 
-
+// ----------------------create user---------------------------
+     createNewUser(name,mail,birthday,password,musictype) {
+        return new Promise((resolve, reject) => {
+            console.log("test");
+            var newUser = new User({
+                name: `${name}`,
+                id: 726,
+                mail: `${mail}`,
+                birthday: `${birthday}`,
+                password: `${password}`,
+                musictype: `${musictype}`,
+                favorites: `${favorites}`
+            });
+            newUser.save(
+                (err) => {
+                    if(err)
+                      console.log(`err: ${err}`);
+                });
+            });
+        };
+}
 module.exports = () => {
     var player = new Player();
     return player;

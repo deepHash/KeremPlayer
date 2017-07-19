@@ -8,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class MainComponent {
     loadedFeature = 'join';
     bgClasses = {
-        'bg1':true,
-        'bg2':false
+        'bg1':false,
+        'bg2':false,
+        'bg3':true,
+        'bg4':false
     }
-  i = 0;
+    i = 0;
 
 
     pageStage(feature:string) {
@@ -20,9 +22,26 @@ export class MainComponent {
     }
 
     changeBG() {
-        this.bgClasses[this.i] = false;
-        this.bgClasses[this.i+1] = true;
-        this.i = this.i+1;
+      // this.bgClasses[0] = true;
+      // console.log(this.bgClasses[this.i]);
+      // this.bgClasses[this.i] = false;
+      // console.log(this.i);
+      // this.bgClasses[this.i+1] = true;
+      // console.log(this.i);
+      // this.i = this.i+1;
+      // console.log(this.i);
+      // console.log(this.bgClasses[this.i]);
+  
+     
+        if (this.bgClasses[0] === false)
+          this.bgClasses[0] = true;
+        else
+          this.bgClasses[0] = false;
+        if (this.bgClasses[1] === false)
+          this.bgClasses[1] = true;
+        else
+          this.bgClasses[1] = false;
+
     }
   constructor() { 
 

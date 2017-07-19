@@ -135,6 +135,15 @@ app.get('/getBestSongByArtist/:name', (req,res,next) => {
     });
 });
 
+app.get('/createNewUser/:name/:mail/:birthday/:password/:musictype', (req,res,next) => {
+    data.createNewUser(req.params.name,req.params.mail,req.params.birthday,req.params.password,req.params.musictype).then((result,error) => {
+        res.status(200).json(result);
+    }, (error) => {
+        console.log(error);
+        next();
+    });
+});
+
 //error 404 route
 app.all('*', (req, res) => {
     res.send(`error: route not found, global handler`);

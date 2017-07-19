@@ -1,0 +1,38 @@
+#wrapper {
+    width: 450px;
+    height: 300px;
+    margin: 0 auto; 
+    margin-top:20.3%;  
+}
+
+#name {
+    background-image: url('/assets/redpoint.png');
+    width: 280px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-color: #373b3e;
+    margin: 0 auto;
+    /*margin-top:20.3%;*/
+    margin-left:25%;
+    padding-right:  50px;
+    border-radius: 0px;
+    border: 0;
+    border-bottom: #ffffff 2px;
+    text-align: right;
+}
+
+#year {
+    background-position: right center;
+    margin: 0 auto;
+    width: 200px;
+    height: 40px;  
+    margin: 0 auto;   
+}
+
+#number {
+    width: 20px;
+    height:30px;
+    margin-right: 20px;
+     background-color: #373b3e    
+}

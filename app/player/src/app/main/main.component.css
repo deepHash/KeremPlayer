@@ -16,10 +16,20 @@ body {
     background-repeat: no-repeat;
 }
 
-
 .bg2 {
     background-size: 100%;
     background-repeat: no-repeat;
     background-image: url('/assets/loginbg/bg2.png');  
+}
+
+.bg3 {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url('/assets/loginbg/bg3.png');  
+}
+.bg4 {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url('/assets/loginbg/bg4.png');  
 }
 
