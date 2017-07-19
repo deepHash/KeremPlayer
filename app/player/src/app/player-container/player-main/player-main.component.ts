@@ -33,17 +33,14 @@ export class PlayerMainComponent {
                 this.singleArtist = singleArtist;
             });
 
-        this.playerService.getMixByUserID(this.userID,this.currentMixID)
-            .subscribe(mixes => {
-                this.mixes = mixes;
-                this.buildSongList(); 
-            });     
+            this.test();  
 
     }
 
     //will build a song list from the songs in mix
     buildSongList() {
         let artistNames: string[] = [];
+        this.songs = [];
         for(let i = 0; i < this.mixes.song.length; i++){
             this.playerService.getArtistBySong(this.mixes.song[i])
                 .subscribe(artist => {    
@@ -63,5 +60,22 @@ export class PlayerMainComponent {
                     this.songs.push(new Song(artistNames[i],id,name,likes,duration));
                 });
         }
+    }
+
+    removeSong(songID:any) {
+        this.playerService.removeSongFromMix(this.userID, this.currentMixID, songID)
+            .subscribe(res => {
+                if (res) {
+                    this.test();
+                }
+            });
+    }
+
+    test() {
+        this.playerService.getMixByUserID(this.userID,this.currentMixID)
+            .subscribe(mixes => {
+                this.mixes = mixes;
+                this.buildSongList(); 
+            });   
     }  
 }

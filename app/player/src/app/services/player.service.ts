@@ -3,6 +3,8 @@ import { Http, Response, Headers} from '@angular/http';
 import { Mix } from '../shared/mix.model';
 import { Song } from '../shared/song.model';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Rx'
 
 @Injectable()
 export class PlayerService {
@@ -36,7 +38,12 @@ export class PlayerService {
     }
 
     removeSongFromMix(userID, mixID, songID) {
-        return this.http.get(`${this.apiUrl}/removeSongFromMix/${userID}/${mixID},${songID}`)
+        return this.http.get(`${this.apiUrl}/removeSongFromMix/${userID}/${mixID}/${songID}`)
             .map(res => res.json());
     }
+
+    getBestSong(name) {
+        return this.http.get(`${this.apiUrl}/getBestSongByArtist/${name}`)
+            .map(res => res.json());
+    }    
 }

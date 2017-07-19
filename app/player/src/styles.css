@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Heebo');
+
 body{
  background: #202528;
+}
+
+h1, h2, h3, h4, th, td, button, p, ul li, a, span{
+    font-family: 'Heebo';
 }

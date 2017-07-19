@@ -7,3 +7,9 @@
 span {
     color: #fbb040;
 }
+
+@media (min-width: 1200px) {
+    .container {
+        padding-top: 1em;
+    }
+}
