@@ -8,15 +8,19 @@ import { Song } from './../../shared/song.model';
   selector: 'player-main',
   templateUrl: './player-main.component.html',
   styleUrls: ['./player-main.component.css'],
-  providers: [PlayerService]
+  providers: [PlayerService] //main service provider
 })
 export class PlayerMainComponent {
-    //models
+    //models and variables
     artists: Artist[];
     singleArtist: Artist[];
     mixes: Mix;
-    songs: Song = new Song(1,"ab","cd",3,"5:5");
-    //
+    songs: Song[] = [];
+    currentMixID: number = 1; //static assignment for now
+    userID: number = 1;        //@ToDo take parameter from father
+    //END of variables
+
+    //c'tor
     constructor (public playerService:PlayerService){
        
         this.playerService.getArtists("new")
@@ -29,16 +33,17 @@ export class PlayerMainComponent {
                 this.singleArtist = singleArtist;
             });
 
-        this.playerService.getMixByUserID(1,1)
+        this.playerService.getMixByUserID(this.userID,this.currentMixID)
             .subscribe(mixes => {
                 this.mixes = mixes;
                 this.buildSongList(); 
             });     
 
     }
+
     //will build a song list from the songs in mix
     buildSongList() {
-        var artistNames: string[] = [];
+        let artistNames: string[] = [];
         for(let i = 0; i < this.mixes.song.length; i++){
             this.playerService.getArtistBySong(this.mixes.song[i])
                 .subscribe(artist => {    
@@ -46,12 +51,17 @@ export class PlayerMainComponent {
                     artistNames[i] = artist[0].name;
                 });
         }
+        //loop through the songs and get the song details assign to song array
+        //with the artists list we got from the previous service (artistNames)
         for(let i = 0; i < this.mixes.song.length; i++){
             this.playerService.getSongByID(this.mixes.song[i])
                 .subscribe(song => {
-                    //@ToDo: add new song in array by loop
+                    let id:number = song.id;
+                    let name:string = song.name;
+                    let likes:number = song.likes;
+                    let duration:string = song.duration;
+                    this.songs.push(new Song(artistNames[i],id,name,likes,duration));
                 });
         }
-        console.log(artistNames);
     }  
 }

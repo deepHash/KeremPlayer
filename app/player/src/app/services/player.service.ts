@@ -34,4 +34,9 @@ export class PlayerService {
         return this.http.get(`${this.apiUrl}/getArtistBySong/${id}`)
             .map(res => res.json());
     }
+
+    removeSongFromMix(userID, mixID, songID) {
+        return this.http.get(`${this.apiUrl}/removeSongFromMix/${userID}/${mixID},${songID}`)
+            .map(res => res.json());
+    }
 }
