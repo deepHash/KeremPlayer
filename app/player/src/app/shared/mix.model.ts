@@ -1,8 +1,11 @@
 export class Mix {
 
-  constructor(public id: number, 
+  constructor(public artist: string,
+              public id: number, 
               public name: string,
               public photo: string,
-              public song: [number]) {
+              public musicType: string,
+              public song: number[]
+                                  ) {
   }
 }

@@ -24,11 +24,26 @@
                 <span id="moreArtistsMsg2">את/אתה יכול להוסיף אמנים חדשים למיקסטייפ שלך או ליצור מיקס חדש</span>
             </div>
         </div><!-- row -->
-        <div class="row">
+        <div class="row" id="similarArtists">
             <div class="col">
                 <app-similar-artists
                 (artistSelected)="addArtist($event)"></app-similar-artists>
             </div>
-        </div>         
+        </div><!-- similar artists row -->
+         <div class="row">
+           <div class="col-md-6 col-md-offset-2">
+                 <span id="moreArtistsMsg1">מיקסטייפים שאולי יעניינו אותך</span>
+           </div>
+        </div><!-- row -->
+        <div class="row">
+            <div class="col-md-6 col-md-offset-2">
+                <span id="moreArtistsMsg2">מיקסטייפים של גולשים אחרים בסגנון דומה</span>
+            </div>
+        </div><!-- row -->
+        <div class="row">
+            <div class="col">
+                <app-similar-mixes></app-similar-mixes>
+            </div>
+        </div>
     </div>
 </body>

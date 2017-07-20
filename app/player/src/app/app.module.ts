@@ -16,6 +16,7 @@ import { UserDetailsComponent } from './new-user/main/user-details/user-details.
 import { SimilarArtistsComponent } from './player-container/similar-artists/similar-artists.component';
 import { MusicTypeComponent } from './new-user/main/music-type/music-type.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { SimilarMixesComponent } from './player-container/similar-mixes/similar-mixes.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NewUserComponent } from './new-user/new-user.component';
     UserDetailsComponent,
     SimilarArtistsComponent,
     MusicTypeComponent,
-    NewUserComponent
+    NewUserComponent,
+    SimilarMixesComponent
   ],
   imports: [
     BrowserModule,

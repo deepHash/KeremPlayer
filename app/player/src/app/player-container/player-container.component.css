@@ -10,7 +10,6 @@ body {
     background-image: url('/assets/decorations.png');
     background-size: 100%;
     background-repeat: no-repeat;
-    /*background-position: center;*/
     padding-top: 15px;
     padding-bottom: 10px;
 }
@@ -36,6 +35,10 @@ body {
     padding: 0 10px 3px 10px;
     color: #fbb040;
     font-size: 100%;
+}
+
+#similarArtists {
+    margin-bottom: 5em;    
 }
 
 @media (max-width: 1400px) {

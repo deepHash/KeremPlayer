@@ -31,13 +31,7 @@ export class PlayerMainComponent implements OnChanges {
                 this.artists = artists;
             });
 
-        this.playerService.getArtistbyName("שרית חדד")
-            .subscribe(singleArtist => {
-                this.singleArtist = singleArtist;
-            });
-
          this.buildSongByMix();  
-
     }
 
     //will build a song list from the songs in mix

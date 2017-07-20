@@ -50,5 +50,10 @@ export class PlayerService {
     getBestSong(name) {
         return this.http.get(`${this.apiUrl}/getBestSongByArtist/${name}`)
             .map(res => res.json());
+    }
+
+    getMixes() {
+        return this.http.get(`${this.apiUrl}/getMixes`)
+            .map(res => res.json());
     }    
 }

@@ -80,7 +80,7 @@ class Player {
                             resolve(err);
                         else
                         {   
-                            //ToDo 20/06/207 - fix the bug that findOne gets all the mixes from user
+                            //ToDo 20/06/2017 - fix the bug that findOne gets all the mixes from user
                             //the following code is a plaster to pick the mix with mix_id
                             let mix = [];
                             for (let i in result.mixes){ 
@@ -186,10 +186,20 @@ class Player {
         });
     };
 
+    getMixes() {
+        return new Promise((resolve, reject) => {
+            User.find({'mixes.name': { $ne: 'המיקסטייפ הראשון שלי' }}, '-_id -id -mail -birthday -password -favourites',
+                (err, result) => {
+                    let mixes = [];
+                    if (err) reject (err);
+                    else resolve (result); 
+                });
+        });
+    }
+
 // ----------------------create user---------------------------
      createNewUser(name,mail,birthday,password,musictype) {
         return new Promise((resolve, reject) => {
-            console.log("test");
             var newUser = new User({
                 name: `${name}`,
                 id: 726,
