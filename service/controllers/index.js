@@ -138,6 +138,17 @@ class Player {
         });
     };
 
+    addSongToMix(user_id, mix_id, song_id) {
+        return new Promise((resolve, reject) => {
+            User.update({id: `${user_id}`, 'mixes.id': `${mix_id}`},
+                        { $push: {'mixes.$.song': `${song_id}`}},
+                (err, result) => {
+                    if (err) reject (err);
+                    else resolve (result);
+                });    
+        });
+    };    
+
     addLike(song_id) {
         return new Promise((resolve, reject) => {
             Artist.update(

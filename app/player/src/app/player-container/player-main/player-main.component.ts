@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { PlayerService } from './../../services/player.service';
 import { Artist } from './../../shared/artist.model';
 import { Mix } from './../../shared/mix.model';
@@ -10,7 +10,10 @@ import { Song } from './../../shared/song.model';
   styleUrls: ['./player-main.component.css'],
   providers: [PlayerService] //main service provider
 })
-export class PlayerMainComponent {
+export class PlayerMainComponent implements OnChanges {
+    //Inputs
+    @Input()
+        addArtist:string;
     //models and variables
     artists: Artist[];
     singleArtist: Artist[];
@@ -33,7 +36,7 @@ export class PlayerMainComponent {
                 this.singleArtist = singleArtist;
             });
 
-            this.test();  
+         this.buildSongByMix();  
 
     }
 
@@ -66,16 +69,26 @@ export class PlayerMainComponent {
         this.playerService.removeSongFromMix(this.userID, this.currentMixID, songID)
             .subscribe(res => {
                 if (res) {
-                    this.test();
+                    this.buildSongByMix();
                 }
             });
     }
 
-    test() {
+    buildSongByMix() {
         this.playerService.getMixByUserID(this.userID,this.currentMixID)
             .subscribe(mixes => {
                 this.mixes = mixes;
                 this.buildSongList(); 
             });   
-    }  
+    } 
+
+    ngOnChanges() {
+        if ( this.addArtist != null) {
+            this.playerService.getBestSong(this.addArtist)
+                .subscribe(song => {
+                      console.log(song);
+            });
+        }
+        this.playerService == null;
+    } 
 }

@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./player-container.component.css']
 })
 export class PlayerContainerComponent implements OnInit {
-
+  artistName:string;  
   constructor() { }
 
   addArtist(name: string) {
-      console.log(`from player container the artist is ${name}`);  
+      //console.log(`from player container the artist is ${name}`);
+      this.artistName = name;  
   }
 
   ngOnInit() {

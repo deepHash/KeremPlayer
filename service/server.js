@@ -5,7 +5,7 @@ const express = require ('express'),
       port = process.env.PORT || 3000,
       data = player();
 
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.set('port',port);
@@ -95,6 +95,17 @@ app.get('/removeSongFromMix/:user_id/:mix_id/:song_id', (req,res,next) => {
     });    
 });
 
+//adds a song to a users mix, params: user_id, mix_id, song_id
+app.get('/addSongToMix/:user_id/:mix_id/:song_id', (req,res,next) => {
+    data.addSongToMix(req.params.user_id, req.params.mix_id, 
+                            req.params.song_id).then((result,error) => {
+        res.status(200).json(result);
+    }, (error) => {
+        console.log(error);
+        next();
+    });    
+});
+
 //increment a like by 1 in a spesific song, params: song_id
 app.get('/addLike/:song_id', (req,res) => {
         data.addLike(req.params.song_id).then((result,error) => {
@@ -125,7 +136,7 @@ app.get('/getSongsFromMix/:user_id/:mix_id', (req,res) => {
     });    
 });
 
-
+//gets the most liked song by artist name
 app.get('/getBestSongByArtist/:name', (req,res,next) => {
     data.getBestSongByArtist(req.params.name).then((result,error) => {
         res.status(200).json(result);
@@ -135,6 +146,7 @@ app.get('/getBestSongByArtist/:name', (req,res,next) => {
     });
 });
 
+//creates new user
 app.get('/createNewUser/:name/:mail/:birthday/:password/:musictype', (req,res,next) => {
     data.createNewUser(req.params.name,req.params.mail,req.params.birthday,req.params.password,req.params.musictype).then((result,error) => {
         res.status(200).json(result);
