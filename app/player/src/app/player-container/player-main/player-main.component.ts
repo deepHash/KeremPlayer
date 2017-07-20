@@ -65,6 +65,15 @@ export class PlayerMainComponent implements OnChanges {
         }
     }
 
+    addSong(songID:number) {
+        this.playerService.addSongToMix(this.userID, this.currentMixID, songID)
+            .subscribe(res => {
+                if(res) {
+                    this.buildSongByMix();
+                }
+            });
+    }
+
     removeSong(songID:any) {
         this.playerService.removeSongFromMix(this.userID, this.currentMixID, songID)
             .subscribe(res => {
@@ -86,7 +95,7 @@ export class PlayerMainComponent implements OnChanges {
         if ( this.addArtist != null) {
             this.playerService.getBestSong(this.addArtist)
                 .subscribe(song => {
-                      console.log(song);
+                      this.addSong(song.id);
             });
         }
         this.playerService == null;

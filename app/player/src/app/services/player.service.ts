@@ -37,6 +37,11 @@ export class PlayerService {
             .map(res => res.json());
     }
 
+    addSongToMix(userID, mixID, songID) {
+        return this.http.get(`${this.apiUrl}/addSongToMix/${userID}/${mixID}/${songID}`)
+            .map(res => res.json());
+    }
+
     removeSongFromMix(userID, mixID, songID) {
         return this.http.get(`${this.apiUrl}/removeSongFromMix/${userID}/${mixID}/${songID}`)
             .map(res => res.json());
