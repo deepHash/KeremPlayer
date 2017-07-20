@@ -3,6 +3,21 @@ table {
     text-align: right;
 }
 
+#table-wrapper {
+    position: relative;
+}
+
+#table-scroll {
+    overflow: auto;
+    height: 16em;
+}
+
+.fixed-header {
+    position: absolute;
+    padding-right: 1em;
+    background: #202528;
+}
+
 td {
     text-align: right;
 }

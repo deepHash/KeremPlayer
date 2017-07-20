@@ -14,6 +14,7 @@ import { PlayerNavComponent } from './player-container/player-nav/player-nav.com
 import { JoinComponent } from './main/join/join.component';
 import { UserDetailsComponent } from './main/user-details/user-details.component';
 import { SimilarArtistsComponent } from './player-container/similar-artists/similar-artists.component';
+import { SimilarMixesComponent } from './player-container/similar-mixes/similar-mixes.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SimilarArtistsComponent } from './player-container/similar-artists/simi
     PlayerNavComponent,
     JoinComponent,
     UserDetailsComponent,
-    SimilarArtistsComponent
+    SimilarArtistsComponent,
+    SimilarMixesComponent
   ],
   imports: [
     BrowserModule,

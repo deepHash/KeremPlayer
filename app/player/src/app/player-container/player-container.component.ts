@@ -10,7 +10,6 @@ export class PlayerContainerComponent implements OnInit {
   constructor() { }
 
   addArtist(name: string) {
-      //console.log(`from player container the artist is ${name}`);
       this.artistName = name;  
   }
 

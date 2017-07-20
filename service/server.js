@@ -83,7 +83,7 @@ app.get('/getSongsByArtist/:name', (req,res,next) => {
         next();
     });
 });
-
+ 
 //removes a song from a users mix, params: user_id, mix_id, song_id
 app.get('/removeSongFromMix/:user_id/:mix_id/:song_id', (req,res,next) => {
     data.removeSongFromMix(req.params.user_id, req.params.mix_id, 
@@ -107,7 +107,7 @@ app.get('/addSongToMix/:user_id/:mix_id/:song_id', (req,res,next) => {
 });
 
 //increment a like by 1 in a spesific song, params: song_id
-app.get('/addLike/:song_id', (req,res) => {
+app.get('/addLike/:song_id', (req,res,next) => {
         data.addLike(req.params.song_id).then((result,error) => {
         res.status(200).json(result);
     }, (error) => {
@@ -116,8 +116,18 @@ app.get('/addLike/:song_id', (req,res) => {
     });    
 });
 
+//get mixes
+app.get('/getMixes/', (req,res,next) => {
+    data.getMixes().then((result, error) => {
+        res.status(200).json(result);    
+    }, (error) => {
+        console.log(error);
+        next();
+    })
+}) 
+
 //gets a song
-app.get('/getSong/:song_id', (req,res) => {
+app.get('/getSong/:song_id', (req,res,next) => {
         data.getSong(req.params.song_id).then((result,error) => {
         res.status(200).json(result);
     }, (error) => {
