@@ -32,4 +32,13 @@ body {
     background-repeat: no-repeat;
     background-image: url('/assets/loginbg/bg4.png');  
 }
-
+.bg5 {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url('/assets/loginbg/bg5.png');  
+}
+.bg6 {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url('/assets/loginbg/bg6.png');  
+}

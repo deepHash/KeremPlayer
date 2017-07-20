@@ -5,15 +5,17 @@ import { HttpModule } from '@angular/http';
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
 import { WrapperComponent } from './wrapper/wrapper.component';
-import { MainComponent } from './main/main.component';
+import { MainComponent } from './new-user/main/main.component';
 import { HeaderComponent } from './header/header.component';
 import { PlayerContainerComponent } from './player-container/player-container.component';
 import { PlayerHeaderComponent } from './player-container/player-header/player-header.component';
 import { PlayerMainComponent } from './player-container/player-main/player-main.component';
 import { PlayerNavComponent } from './player-container/player-nav/player-nav.component';
-import { JoinComponent } from './main/join/join.component';
-import { UserDetailsComponent } from './main/user-details/user-details.component';
+import { JoinComponent } from './new-user/main/join/join.component';
+import { UserDetailsComponent } from './new-user/main/user-details/user-details.component';
 import { SimilarArtistsComponent } from './player-container/similar-artists/similar-artists.component';
+import { MusicTypeComponent } from './new-user/main/music-type/music-type.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { SimilarArtistsComponent } from './player-container/similar-artists/simi
     PlayerNavComponent,
     JoinComponent,
     UserDetailsComponent,
-    SimilarArtistsComponent
+    SimilarArtistsComponent,
+    MusicTypeComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
