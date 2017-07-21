@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { PlayerService } from './../../services/player.service';
 import { Artist } from './../../shared/artist.model';
 import { Mix } from './../../shared/mix.model';
@@ -11,9 +11,9 @@ import { Song } from './../../shared/song.model';
   providers: [PlayerService] //main service provider
 })
 export class PlayerMainComponent implements OnChanges {
-    //Inputs
-    @Input()
-        addArtist:string;
+    //Inputs & Outputs
+    @Input() addArtist:string;
+    @Output() songList = new EventEmitter<Song[]>();
     //models and variables
     artists: Artist[];
     singleArtist: Artist[];
@@ -57,6 +57,7 @@ export class PlayerMainComponent implements OnChanges {
                     this.songs.push(new Song(artistNames[i],id,name,likes,duration));
                 });
         }
+        this.songList.emit(this.songs);
     }
 
     addSong(songID:number) {

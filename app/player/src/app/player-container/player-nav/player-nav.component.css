@@ -14,6 +14,7 @@ ul li {
 ul li:hover {
     color: #fbb040;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .bullet {
@@ -21,4 +22,10 @@ ul li:hover {
     float:right;
     width: 19px;
     height: 19px;
+}
+
+@media (min-width: 1400px) {
+    ul li {
+        padding-bottom: 5em;
+    }
 }

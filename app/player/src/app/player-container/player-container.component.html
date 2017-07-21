@@ -8,10 +8,22 @@
         </div><!-- header row -->
         <div class="row mainWrapper">
             <div class="col-md-9 col-lg-9">
-                <player-main [addArtist]="artistName"></player-main>
+                <player-main 
+                    *ngIf="loadedSection === 'list'" 
+                    (songList)="setSongList($event)"
+                    [addArtist]="artistName">    
+                </player-main>
+                <app-player
+                    *ngIf="loadedSection ==='player'"
+                    (playSong)="play($event)"
+                    (pauseSong)="pause($event)"
+                    (nextSong)="next($event)"
+                    (prevSong)="prev($event)">   
+                </app-player>
             </div>
-            <div class="col-md-3 col-lg-3">
-                <app-player-nav></app-player-nav>
+            <div class="col-md-3 col-lg-3" id="sideNav" >
+                <app-player-nav 
+                (sectionSelected)="onNav($event)"></app-player-nav>
             </div>
         </div><!-- main wrapper row -->
         <div class="row">
@@ -21,7 +33,7 @@
         </div><!-- row -->
         <div class="row">
             <div class="col-md-6 col-md-offset-2">
-                <span id="moreArtistsMsg2">את/אתה יכול להוסיף אמנים חדשים למיקסטייפ שלך או ליצור מיקס חדש</span>
+                <span id="moreArtistsMsg2">את/ה יכול להוסיף אמנים חדשים למיקסטייפ שלך או ליצור מיקס חדש לגמרי ע"י הוספה והסרה</span>
             </div>
         </div><!-- row -->
         <div class="row" id="similarArtists">
@@ -31,13 +43,13 @@
             </div>
         </div><!-- similar artists row -->
          <div class="row">
-           <div class="col-md-6 col-md-offset-2">
-                 <span id="moreArtistsMsg1">מיקסטייפים שאולי יעניינו אותך</span>
+           <div class="col-md-6 col-md-offset-1">
+                 <span id="moreArtistsMsg1">מיקסטייפים פופולרים</span>
            </div>
         </div><!-- row -->
         <div class="row">
             <div class="col-md-6 col-md-offset-2">
-                <span id="moreArtistsMsg2">מיקסטייפים של גולשים אחרים בסגנון דומה</span>
+                <span id="moreArtistsMsg2">מיקסטייפים של גולשים אחרים בסגנון דומה, ניתן לשמוע או להוסיף למועדפים</span>
             </div>
         </div><!-- row -->
         <div class="row">

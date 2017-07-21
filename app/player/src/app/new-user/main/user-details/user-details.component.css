@@ -6,7 +6,7 @@
 }
 
 #name {
-    background-image: url('/assets/redpoint.png');
+    background-image: url('/assets/loginbg/bg1.png/assets/redpoint.png');
     width: 220px;
     height: 28px;
     background-repeat: no-repeat;
@@ -44,7 +44,7 @@
 }
 
 #mail {
-    background-image: url('/assets/redpoint.png');
+    background-image: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188/assets/loginbg/bg1.png/assets/redpoint.png');
     width: 280px;
     height: 28px;
     background-repeat: no-repeat;

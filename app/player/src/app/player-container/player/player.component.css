@@ -1,0 +1,25 @@
+#player{
+    background:url('/assets/player/player.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 470px;
+    width: 810px;
+}
+
+.buttons {
+    display: flex;
+    padding-left: 18em;
+    padding-right: 18em;
+    padding-top: 5em;
+}
+
+img{
+    border:0;
+    margin: auto;
+    cursor: pointer;
+}
+
+.container{
+    margin: 0;
+    padding: 0
+}

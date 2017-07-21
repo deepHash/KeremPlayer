@@ -18,6 +18,8 @@ import { MusicTypeComponent } from './new-user/main/music-type/music-type.compon
 import { NewUserComponent } from './new-user/new-user.component';
 import { SimilarMixesComponent } from './player-container/similar-mixes/similar-mixes.component';
 import { ArtistsTypeComponent } from './new-user/main/artists-type/artists-type.component';
+import { PlayerComponent } from './player-container/player/player.component';
+// import { YoutubePlayerModule } from 'ng2-youtube-player';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ArtistsTypeComponent } from './new-user/main/artists-type/artists-type.
     MusicTypeComponent,
     NewUserComponent,
     SimilarMixesComponent,
-    ArtistsTypeComponent
+    ArtistsTypeComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,

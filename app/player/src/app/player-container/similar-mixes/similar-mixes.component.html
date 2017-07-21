@@ -1,19 +1,19 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4" *ngFor="let mix of mixes">
-            <div class="row">
-                <div class="col-md-3">
-                    <label><b>{{mix.name}}</b></label><br>
-                    <label>יוצר:{{mix.artist}}</label>
+        <div class="col-md-4 mix" *ngFor="let mix of mixes">
+            <div class="row set">
+                <div class="col-md-3 text">
+                    <p><b>{{mix.name}}</b></p><br>
+                    <p>יוצר:  {{mix.artist}}</p>
                 </div>
                 <div class="col-md-9">
                     <img id="picture" src="{{mix.photo}}">
                 </div>
             </div>
-            <div class="row">
+            <div class="row buttons">
                 <img class="col icons" src="./assets/artists/playtiny.png">
                 <img class="col icons" src="./assets/artists/add.png">
             </div>
-        </div>
+        </div> 
     </div>
 </div>
