@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-player-nav',
@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./player-nav.component.css']
 })
 export class PlayerNavComponent implements OnInit {
-
+@Output() sectionSelected = new EventEmitter<string>();
+  
   constructor() { }
+
+  onSelect(section:string) {
+      this.sectionSelected.emit(section);
+  }
 
   ngOnInit() {
   }

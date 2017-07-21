@@ -198,7 +198,7 @@ class Player {
     }
 
 // ----------------------create user---------------------------
-     createNewUser(name,mail,birthday,password,musictype) {
+     createNewUser(name,mail,birthday,password,musictype,mix[]) {
         return new Promise((resolve, reject) => {
             var newUser = new User({
                 name: `${name}`,
@@ -207,7 +207,8 @@ class Player {
                 birthday: `${birthday}`,
                 password: `${password}`,
                 musictype: `${musictype}`,
-                favorites: `${favorites}`
+                //favorites: `${favorites}`,
+                mixes: `${mix[]}`
             });
             newUser.save(
                 (err) => {

@@ -8,6 +8,8 @@
 #name {
     background-image: url('/assets/redpoint.png');
     width: 17vw;
+    background-image: url('/assets/redpoint.png');
+    width: 220px;
     height: 28px;
     background-repeat: no-repeat;
     background-position: right center;
@@ -43,8 +45,13 @@
 }
 
 #mail {
+<<<<<<< HEAD
     background-image: url('/assets/redpoint.png');
     width: 22.3vw;
+=======
+    background-image: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188/assets/loginbg/bg1.png/assets/redpoint.png');
+    width: 280px;
+>>>>>>> preplay
     height: 28px;
     background-repeat: no-repeat;
     background-position: right center;

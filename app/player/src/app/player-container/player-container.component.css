@@ -3,7 +3,6 @@ body {
     height: 100%;
     width: 100%;
     padding-top: 15px;
-    text-align: right;
 }
 
 #decorations {
@@ -16,8 +15,8 @@ body {
 
 .mainWrapper {
     margin-top: 5em;
-    margin-left: 30em;
-    margin-right: 25em;
+    margin-left: 20em;
+    margin-right: 15em;
     margin-bottom: 3em;
 }
 
@@ -27,6 +26,7 @@ body {
     padding: 2px 10px 0px 10px;
     color: #fff;
     font-size: 150%;
+    
 }
 
 #moreArtistsMsg2 {
@@ -37,13 +37,21 @@ body {
     font-size: 100%;
 }
 
-#similarArtists {
-    margin-bottom: 5em;    
+.col-md-6 {
+    margin-bottom: 1em;
+    text-align: right;
 }
 
-@media (max-width: 1400px) {
+#similarArtists {
+    margin-bottom: 10em;    
+}
+
+@media (min-width: 1400px) {
     .mainWrapper {
-        margin-left: 20em;
-        margin-right: 15em;
+        margin-left: 30em;
+        margin-right: 25em;
+        margin-bottom: 15em;
     }
 }
+
+
