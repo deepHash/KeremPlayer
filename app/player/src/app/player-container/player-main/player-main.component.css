@@ -7,9 +7,26 @@ table {
     position: relative;
 }
 
-#table-scroll {
-    overflow: auto;
+.scrollbar {
     height: 16em;
+    overflow-y: scroll;
+}
+
+#style-bar::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+    background-color: #202528;
+}
+
+#style-bar::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #202528;
+}
+
+#style-bar::-webkit-scrollbar-thumb
+{
+    background-color: #fbb040;
 }
 
 .fixed-header {
@@ -38,4 +55,10 @@ td > span{
 
 .remove{
     color:#515557;
+}
+
+@media (min-width: 1400px) {
+    .scrollbar {
+        height: 25em;
+    }
 }

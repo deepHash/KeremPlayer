@@ -29,7 +29,6 @@ export class SimilarMixesComponent {
                       this.mixes.push(new Mix(artist,id,name,photo,musicType,song));   
                   }
               }
-              console.log(this.mixes);
        });
 
   }
