@@ -42,3 +42,14 @@ body {
     background-repeat: no-repeat;
     background-image: url('/assets/loginbg/bg6.png');  
 }
+.bg7 {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url('/assets/loginbg/bg7.png');  
+}
+.bg8 {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url('/assets/loginbg/bg8.png');  
+}
+

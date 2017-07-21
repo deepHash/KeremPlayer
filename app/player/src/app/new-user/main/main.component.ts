@@ -7,16 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent {
     loadedFeature = 'join';
+    type :string;
     bgClasses = {
         'bg1':true,
         'bg2':false,
         'bg3':false,
         'bg4':false,
         'bg5':false,
-        'bg6':false
+        'bg6':false,
+        'bg7':false,
+        'bg8':false,
     }
 
-
+    typeStage(type:string) {
+        this.type = type;
+        console.log(type);
+    }
 
     pageStage(feature:string) {
         this.loadedFeature = feature;
@@ -43,6 +49,14 @@ export class MainComponent {
         else if(this.bgClasses.bg5 === true){
           this.bgClasses.bg5 = false;
           this.bgClasses.bg6 = true;
+        }
+         else if(this.bgClasses.bg6 === true){
+          this.bgClasses.bg6 = false;
+          this.bgClasses.bg7 = true;
+        }
+         else if(this.bgClasses.bg7 === true){
+          this.bgClasses.bg7 = false;
+          this.bgClasses.bg8 = true;
         }
     }
   constructor() { 

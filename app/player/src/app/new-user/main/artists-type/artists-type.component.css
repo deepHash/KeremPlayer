@@ -1,0 +1,28 @@
+.container{
+    margin-top: 28%; 
+    width: 50vw;
+    margin-left: 25vw;
+}
+
+#name{
+    color: #ffffff;
+}
+
+#done{
+    width: 7vw;
+    height: 35px;
+    background-color: #373b3e;
+    border-color: #ffffff;
+    color:#ffffff;
+    margin-left:20vw;
+    margin-top:3.5%;  
+    border-radius: 10vw;
+}
+
+#artists {
+    cursor: pointer;
+}
+
+img{
+    width: 8vw;
+}

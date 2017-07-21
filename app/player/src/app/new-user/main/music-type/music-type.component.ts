@@ -7,9 +7,16 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class MusicTypeComponent implements OnInit {
   @Output() featureSelected = new EventEmitter<string>();
+  @Output() typeSelected = new EventEmitter<string>();
 
+  
     onSelect(feature:string) {
         this.featureSelected.emit(feature);
+        // console.log(feature);
+    }
+
+    onSelectType(type:string) {
+        this.typeSelected.emit(type);
         // console.log(feature);
     }
   constructor() { }

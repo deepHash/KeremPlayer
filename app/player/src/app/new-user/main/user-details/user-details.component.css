@@ -1,5 +1,5 @@
 #wrapper {
-    width: 450px;
+    width: 40vw;
     height: 300px;
     margin: 0 auto; 
     margin-top:20.3%;
@@ -7,14 +7,14 @@
 
 #name {
     background-image: url('/assets/redpoint.png');
-    width: 220px;
+    width: 17vw;
     height: 28px;
     background-repeat: no-repeat;
     background-position: right center;
     background-color: #373b3e;
     margin: 0 auto;
-    margin-left:40.5%;
-    margin-top: -0.5%;
+    margin-left:17.1vw;
+    margin-top: 2.6vh;  
     padding-right:  50px;
     border-radius: 0px;
     border: 0;
@@ -25,15 +25,14 @@
 #year {
     background-position: right center;
     margin: 0 auto;
-    width: 200px;
+    width: 100%;
     height: 40px;  
-    margin: 0 auto;  
     margin-left:45%;
     margin-top:5%;
 }
 
 #number {
-    width: 38px;
+    width: 3.2vw;
     height:35px;
     margin-right: 20px;
     background-color: #373b3e;  
@@ -45,14 +44,14 @@
 
 #mail {
     background-image: url('/assets/redpoint.png');
-    width: 280px;
+    width: 22.3vw;
     height: 28px;
     background-repeat: no-repeat;
     background-position: right center;
     background-color: #373b3e;
     margin: 0 auto;
-    margin-left:22.3%;
-    margin-top:3.5%;  
+    margin-left:25.2%;
+    margin-top:6.1%;  
     padding-right:  50px;
     border-radius: 0px;
     border: 0;
@@ -62,11 +61,12 @@
 }
 
 #continue{
-    width: 100px;
+    width: 7vw;
     height: 35px;
     background-color: #373b3e;
     border-color: #ffffff;
     color:#ffffff;
-     margin-left:20%;
-     margin-top:3.5%;  
+    margin-left:20%;
+    margin-top:3.5%;
+    border-radius: 10vw;
 }

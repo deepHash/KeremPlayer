@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, Output,Input, EventEmitter } from '@angular/core';
 import { PlayerService } from './../../../services/player.service';
 import { Artist } from './../../../shared/artist.model';
 @Component({
@@ -7,23 +7,31 @@ import { Artist } from './../../../shared/artist.model';
   styleUrls: ['./artists-type.component.css'],
   providers: [PlayerService]
 })
-export class ArtistsTypeComponent implements OnInit {
+export class ArtistsTypeComponent implements OnChanges {
+  @Input() musicType:string;
   artists: Artist[];
-  musicType:string = "new";
-
-   @Output() artistSelected = new EventEmitter<string>(); 
   
+  //@Output() artistSelected = new EventEmitter<string>(); 
+  
+
   //c'tor 
   constructor(public playerService:PlayerService) {
         
-        this.playerService.getArtists(this.musicType)
+       
+  }
+pickedArtist(id:any){
+console.log(id);
+} 
+
+  ngOnChanges() {
+    console.log(this.musicType); 
+    if(this.musicType != null) {
+       this.playerService.getArtists(this.musicType)
             .subscribe(artists => {
                 this.artists = artists;
             });
+    }
   }
- 
 
-  ngOnInit() {
-  }
 
 }

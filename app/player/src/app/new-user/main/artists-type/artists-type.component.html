@@ -1,13 +1,14 @@
 <div class="container">
         <div class="row">
-            <div class="col-md-3 anArtist" *ngFor="let artist of artists">
+            <div class="col-md-3 anArtist" *ngFor="let artist of artists; let i ='index'">
                 <div class="row">
-                    <img class="col" id="artists" src={{artist.photo}}>
+                    <img class="col" id="artists" src={{artist.photo}} (click)="pickedArtist(artist.name)">
                 </div>
-                <div class="row">
+                <div class="row" id="name">
                     <span class="col">{{artist.name}}</span>
                 </div>
             </div>
         </div>
+        <button (click) = "onSelect('type')" type="submit" id="done">סיימתי</button>
 </div>
 

@@ -7,11 +7,14 @@
         *ngIf="(loadedFeature === 'details') || (loadedFeature === 'type') || (loadedFeature === 'artists')">
         </app-user-details>
 
-        <app-music-type  (featureSelected)="pageStage($event)" 
+        <app-music-type  
+        (typeSelected)="typeStage($event)"
+        (featureSelected)="pageStage($event)"  
          *ngIf="loadedFeature === 'type' || (loadedFeature === 'artists')">
         </app-music-type>
 
          <app-artists-type  (featureSelected)="pageStage($event)" 
-         *ngIf="loadedFeature === 'artists'">
+         *ngIf="loadedFeature === 'artists'"
+         [musicType]="type">
          </app-artists-type>
 </body>
