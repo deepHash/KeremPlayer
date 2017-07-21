@@ -1,0 +1,13 @@
+<div class="container">
+        <div class="row">
+            <div class="col-md-3 anArtist" *ngFor="let artist of artists">
+                <div class="row">
+                    <img class="col" id="artists" src={{artist.photo}}>
+                </div>
+                <div class="row">
+                    <span class="col">{{artist.name}}</span>
+                </div>
+            </div>
+        </div>
+</div>
+

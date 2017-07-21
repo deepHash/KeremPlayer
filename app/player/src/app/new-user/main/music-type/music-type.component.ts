@@ -6,7 +6,12 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./music-type.component.css']
 })
 export class MusicTypeComponent implements OnInit {
-  
+  @Output() featureSelected = new EventEmitter<string>();
+
+    onSelect(feature:string) {
+        this.featureSelected.emit(feature);
+        // console.log(feature);
+    }
   constructor() { }
 
   ngOnInit() {

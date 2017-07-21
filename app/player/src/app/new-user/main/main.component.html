@@ -1,6 +1,17 @@
 <body [ngClass]="bgClasses">
-        <app-join (featureSelected)="pageStage($event)" ></app-join>
+
+        <app-join (featureSelected)="pageStage($event)" >
+        </app-join>
+
         <app-user-details (featureSelected)="pageStage($event)" 
-        *ngIf="(loadedFeature === 'details') || (loadedFeature === 'type')"></app-user-details>
-        <app-music-type  *ngIf="loadedFeature === 'type'"></app-music-type>
+        *ngIf="(loadedFeature === 'details') || (loadedFeature === 'type') || (loadedFeature === 'artists')">
+        </app-user-details>
+
+        <app-music-type  (featureSelected)="pageStage($event)" 
+         *ngIf="loadedFeature === 'type' || (loadedFeature === 'artists')">
+        </app-music-type>
+
+         <app-artists-type  (featureSelected)="pageStage($event)" 
+         *ngIf="loadedFeature === 'artists'">
+         </app-artists-type>
 </body>
