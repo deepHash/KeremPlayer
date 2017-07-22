@@ -2,8 +2,10 @@
 
 .clearfix.wrapper {
     text-align: center;
+    position: relative;
 }
 button {
+    position: relative;
     margin: 0 auto;
     margin-top: 36%;
     width: 11%;
@@ -11,5 +13,5 @@ button {
     border: solid 2px #ffffff ;
     background-color: #202528;
     color:#ffffff;
-    margin-bottom: 60px; 
+    margin-bottom: 10%; 
 }

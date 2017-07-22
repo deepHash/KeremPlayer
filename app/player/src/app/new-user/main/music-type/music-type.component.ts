@@ -8,10 +8,11 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class MusicTypeComponent implements OnInit {
   @Output() featureSelected = new EventEmitter<string>();
   @Output() typeSelected = new EventEmitter<string>();
-
+  disableButton: boolean = false;
   
     onSelect(feature:string) {
         this.featureSelected.emit(feature);
+        this.disableButton=true;
     }
 
     onSelectType(type:string) {
