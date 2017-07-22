@@ -4,6 +4,7 @@ export class Song {
               public id: number,
               public name: string,
               public likes: number,
-              public duration: string) {
+              public duration: string,
+              public src: string) {
   }
 }

@@ -9,7 +9,8 @@ var mongoose = require('mongoose'),
             id: {type:Number},
             name: String,
             likes: Number,
-            duration: String
+            duration: String,
+            src: String
         }]
     }, {collection: 'Artist'});
 

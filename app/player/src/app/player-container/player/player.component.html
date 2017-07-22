@@ -6,6 +6,16 @@
                 <img class="col" src={{playButtonStatus}} (click)="play()">
                 <img class="col next" src="./assets/player/next.png" (click)="next()">
             </div>
+            <div class="row data">
+                <div class="col">
+                    <p>{{currentSong.artist}}</p>
+                </div>
+            </div>
+            <div class="row data">
+                <div class="col">
+                    <p>{{currentSong.duration}} - {{currentSong.name}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

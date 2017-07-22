@@ -14,11 +14,12 @@ export class PlayerMainComponent implements OnChanges {
     //Inputs & Outputs
     @Input() addArtist:string;
     @Output() songList = new EventEmitter<Song[]>();
+    @Output() playThisSong = new EventEmitter<number>();
     //models and variables
     artists: Artist[];
     singleArtist: Artist[];
     mixes: Mix;
-    songs: Song[] = [];
+    songs = [];
     currentMixID: number = 1; //static assignment for now
     userID: number = 1;        //@ToDo take parameter from father
     //END of variables
@@ -54,7 +55,8 @@ export class PlayerMainComponent implements OnChanges {
                     let name:string = song.name;
                     let likes:number = song.likes;
                     let duration:string = song.duration;
-                    this.songs.push(new Song(artistNames[i],id,name,likes,duration));
+                    let src:string = song.src;
+                    this.songs.push(new Song(artistNames[i],id,name,likes,duration, src));
                 });
         }
         this.songList.emit(this.songs);
@@ -69,7 +71,12 @@ export class PlayerMainComponent implements OnChanges {
             });
     }
 
+    playSong(songID:any) {
+        this.playThisSong.emit(songID);
+    }
+
     removeSong(songID:any) {
+        //let index = this.songs.indexOf();
         this.playerService.removeSongFromMix(this.userID, this.currentMixID, songID)
             .subscribe(res => {
                 if (res) {

@@ -53,6 +53,14 @@ td > span{
     padding-left: 3px;
 }
 
+.songRow {
+    cursor: pointer;
+}
+
+.songRow:hover {
+    background-color: #303437;
+}
+
 .remove{
     color:#515557;
 }

@@ -11,7 +11,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let song of songs; let i = 'index + 1'">
+                      <tr class="songRow" *ngFor="let song of songs; let i = 'index + 1'" (click)="playSong(song.id)">
                         <td><button type="button" class="btn btn-warning btn-xs" aria-label="Right Align" (click)="removeSong(song.id)">
                                 הסר <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span> 
                             </button>    

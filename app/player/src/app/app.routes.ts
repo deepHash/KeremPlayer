@@ -14,7 +14,7 @@ import { JoinComponent } from './new-user/main/join/join.component';
 import { UserDetailsComponent } from './new-user/main/user-details/user-details.component';
 
 export const router: Routes = [
-    { path: '', redirectTo: 'new-user', pathMatch: 'full'},
+    { path: '', redirectTo: '/', pathMatch: 'full'},
     { path: 'header', component: HeaderComponent},
     { path: 'new-user', component: NewUserComponent},
     { path: 'main', component: MainComponent},

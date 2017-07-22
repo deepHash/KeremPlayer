@@ -13,6 +13,17 @@
     padding-top: 5em;
 }
 
+.data {
+    display: flex;
+    color: #fff;
+    /*padding-left: 25em;*/
+    padding-top:1em;
+}
+
+.data .col {
+    margin: auto;
+}
+
 img{
     border:0;
     margin: auto;
@@ -23,3 +34,14 @@ img{
     margin: 0;
     padding: 0
 }
+
+/*@media (max-width: 1601) {
+    #player {
+        background:url('/assets/player/player.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        height: 350px;
+        width: 450px
+    }
+}*/

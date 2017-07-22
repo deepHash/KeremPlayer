@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-player',
@@ -6,23 +6,28 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
-  @Output() playSong = new EventEmitter<string>();
-  @Output() pauseSong = new EventEmitter<string>();
-  @Output() nextSong = new EventEmitter<string>();
-  @Output() prevSong = new EventEmitter<string>();
-  playButtonStatus:string = "./assets/player/play.png";
-  playButtonFlag:boolean = false;  
-  constructor() { }
-
+  @Input() currentSong;
+  @Output() playSong = new EventEmitter<any>();
+  @Output() pauseSong = new EventEmitter<any>();
+  @Output() nextSong = new EventEmitter<any>();
+  @Output() prevSong = new EventEmitter<any>();
+  playButtonStatus:string;
+  static playButtonFlag:boolean = false;  
+  constructor() {
+      if (!PlayerComponent.playButtonFlag)
+          this.playButtonStatus = "./assets/player/play.png";
+      else 
+          this.playButtonStatus = "./assets/player/pause.png"
+  }
   play() {
-      if (!this.playButtonFlag) {
+      if (!PlayerComponent.playButtonFlag) {
           this.playButtonStatus = "./assets/player/pause.png";
-          this.playButtonFlag = true;
+          PlayerComponent.playButtonFlag = true;
           this.playSong.emit();
       }
       else {
           this.playButtonStatus = "./assets/player/play.png"
-          this.playButtonFlag = false;
+          PlayerComponent.playButtonFlag = false;
           this.pauseSong.emit();
       }
   }
@@ -33,6 +38,11 @@ export class PlayerComponent implements OnInit {
 
   next(){
       this.nextSong.emit();
+  }
+
+  ngOnChanges() {
+      if (this.currentSong != null)
+          console.log(this.currentSong);
   }
 
   ngOnInit() {

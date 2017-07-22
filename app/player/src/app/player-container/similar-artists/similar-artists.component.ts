@@ -17,7 +17,8 @@ export class SimilarArtistsComponent {
   //End of variables
 
   //Outputs
-  @Output() artistSelected = new EventEmitter<string>(); 
+  @Output() artistSelected = new EventEmitter<string>();
+  @Output() artistPlayDemo = new EventEmitter<string>(); 
   
   //c'tor 
   constructor(public playerService:PlayerService) {
@@ -32,4 +33,13 @@ export class SimilarArtistsComponent {
   addSongToPlaylist(name:string) {
       this.artistSelected.emit(name);
   }
+
+  playDemo(name:string) {
+    this.artistPlayDemo.emit(name);
+  }
+
+  likeSong(){
+    
+  }
+
 }

@@ -11,6 +11,7 @@
                 <player-main 
                     *ngIf="loadedSection === 'list'" 
                     (songList)="setSongList($event)"
+                    (playThisSong)="switchSong($event)"
                     [addArtist]="artistName">    
                 </player-main>
                 <app-player
@@ -18,7 +19,8 @@
                     (playSong)="play($event)"
                     (pauseSong)="pause($event)"
                     (nextSong)="next($event)"
-                    (prevSong)="prev($event)">   
+                    (prevSong)="prev($event)"
+                    [currentSong]="songlist[currentSong]">   
                 </app-player>
             </div>
             <div class="col-md-3 col-lg-3" id="sideNav" >
@@ -39,7 +41,8 @@
         <div class="row" id="similarArtists">
             <div class="col">
                 <app-similar-artists
-                (artistSelected)="addArtist($event)"></app-similar-artists>
+                (artistSelected)="addArtist($event)"
+                (artistPlayDemo)="playDemo($event)"></app-similar-artists>
             </div>
         </div><!-- similar artists row -->
          <div class="row">

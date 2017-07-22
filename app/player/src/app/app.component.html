@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<router-outlet>
+    <app-new-user *ngIf="loadedScreen === 'new-user'"></app-new-user>
+    <app-player-container *ngIf="loadedScreen === 'player'"></app-player-container>
+</router-outlet>
