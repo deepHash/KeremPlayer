@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck, AfterViewChecked, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, Input, DoCheck, AfterViewChecked, AfterContentChecked } from '@angular/core';
 import { Artist } from './../shared/artist.model';
 import { Mix } from './../shared/mix.model';
 import { Song } from './../shared/song.model';
@@ -12,6 +12,8 @@ import { PlayerService } from './../services/player.service';
   providers:[PlayerService]
 })
 export class PlayerContainerComponent implements OnInit {
+  //input
+  @Input() userEmail:string;
   //variables
   loadedSection:string = 'list'; //var for section to show from nav
   artistName:string; // artist that have been added from similar artists

@@ -22,8 +22,8 @@ export class PlayerService {
             .map(res => res.json());
     }
 
-    getMixByUserID(userID,mixID) {
-        return this.http.get(`${this.apiUrl}/getMixByUserId/${userID}/${mixID}`)
+    getMixByUserID(email,mixID) {
+        return this.http.get(`${this.apiUrl}/getMixByUserId/${email}/${mixID}`)
             .map(res => res.json());
     }
 
@@ -37,13 +37,13 @@ export class PlayerService {
             .map(res => res.json());
     }
 
-    addSongToMix(userID, mixID, songID) {
-        return this.http.get(`${this.apiUrl}/addSongToMix/${userID}/${mixID}/${songID}`)
+    addSongToMix(email, mixID, songID) {
+        return this.http.get(`${this.apiUrl}/addSongToMix/${email}/${mixID}/${songID}`)
             .map(res => res.json());
     }
 
-    removeSongFromMix(userID, mixID, songID) {
-        return this.http.get(`${this.apiUrl}/removeSongFromMix/${userID}/${mixID}/${songID}`)
+    removeSongFromMix(email, mixID, songID) {
+        return this.http.get(`${this.apiUrl}/removeSongFromMix/${email}/${mixID}/${songID}`)
             .map(res => res.json());
     }
 
@@ -55,5 +55,10 @@ export class PlayerService {
     getMixes() {
         return this.http.get(`${this.apiUrl}/getMixes`)
             .map(res => res.json());
+    }
+
+    createNewUser(user) {
+        return this.http.post(`${this.apiUrl}/createNewUser`, {user:user})
+            .map(res => res.json())
     }    
 }

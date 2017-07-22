@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PlayerService } from './../../services/player.service';
-
+import { Mix } from './../../shared/mix.model';
+import { User } from './../../shared/user.model';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -8,11 +9,14 @@ import { PlayerService } from './../../services/player.service';
   providers: [PlayerService]
 })
 export class MainComponent {
+    //outputs
+    @Output() finishedUserDetails = new EventEmitter<string>(); 
+
     //variables
     loadedFeature = 'join';
     type :string;
     userDetails: any;
-    userPassword: any;
+    userPassword: string;
     artistsSelected: any[];
     bgClasses = {
         'bg1':true,
@@ -82,16 +86,24 @@ export class MainComponent {
     }
 
     newUserToService() {
-      let artists = [];
+      let songs = [];
       for(let i=0; i<this.artistsSelected.length; i++) {
         this.playerService.getArtistbyName(this.artistsSelected[i])
           .subscribe(artist => {
-              artists.push(artist);
-              console.log(artist);    
+              for(let j=0; j<artist[0].songs.length; j++) {
+                songs.push(artist[0].songs[j].id);
+              }  
           })
       }
-
-      this.loadedFeature = 'player';
+      let birthday = `${this.userDetails.day}/${this.userDetails.month}/${this.userDetails.year}`;
+      let mix = []; 
+      mix.push(new Mix(null, 1, "המיקסטייפ הראשון שלי","",this.type,songs));
+      let user = new User(this.userDetails.name,this.userDetails.email,birthday,this.userPassword,this.type,mix);
+      this.playerService.createNewUser(JSON.stringify(user))
+        .subscribe(res => {
+          console.log(`result in create user ${res}`);
+        })
+      this.finishedUserDetails.emit(this.userDetails.email);
     }
 
   

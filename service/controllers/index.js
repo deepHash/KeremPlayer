@@ -45,10 +45,10 @@ class Player {
                 });
         });
     };
-
-    getMixByUserID(user_id, mix_id) {
+    //need to change nameing after restructre 
+    getMixByUserID(email, mix_id) {
         return new Promise((resolve, reject) => {
-            User.findOne({id: `${user_id}`, 'mixes.id': `${mix_id}`}, 'mixes -_id',
+            User.findOne({mail: `${email}`, 'mixes.id': `${mix_id}`}, 'mixes -_id',
                 (err, result) => {
                     if (err) reject (err);
                     else {
@@ -127,9 +127,9 @@ class Player {
         });
     };
 
-    removeSongFromMix(user_id, mix_id, song_id) {
+    removeSongFromMix(email, mix_id, song_id) {
         return new Promise((resolve, reject) => {
-            User.update({id: `${user_id}`, 'mixes.id': `${mix_id}`},
+            User.update({mail: `${email}`, 'mixes.id': `${mix_id}`},
                         { $pull: {'mixes.$.song': `${song_id}`}},
                 (err, result) => {
                     if (err) reject (err);
@@ -138,9 +138,9 @@ class Player {
         });
     };
 
-    addSongToMix(user_id, mix_id, song_id) {
+    addSongToMix(email, mix_id, song_id) {
         return new Promise((resolve, reject) => {
-            User.update({id: `${user_id}`, 'mixes.id': `${mix_id}`},
+            User.update({mail: `${email}`, 'mixes.id': `${mix_id}`},
                         { $push: {'mixes.$.song': `${song_id}`}},
                 (err, result) => {
                     if (err) reject (err);

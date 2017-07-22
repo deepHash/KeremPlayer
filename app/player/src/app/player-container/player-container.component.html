@@ -3,7 +3,9 @@
         <app-header></app-header>
         <div class="row">
             <div class="col">
-                <app-player-header></app-player-header>
+                <app-player-header
+                [userEmail]="userEmail">   
+                </app-player-header>
             </div>
         </div><!-- header row -->
         <div class="row mainWrapper">
@@ -12,7 +14,8 @@
                     *ngIf="loadedSection === 'list'" 
                     (songList)="setSongList($event)"
                     (playThisSong)="switchSong($event)"
-                    [addArtist]="artistName">    
+                    [addArtist]="artistName"
+                    [userEmail]="userEmail">    
                 </player-main>
                 <app-player
                     *ngIf="loadedSection ==='player'"

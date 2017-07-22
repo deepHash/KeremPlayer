@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-new-user',
@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-user.component.css']
 })
 export class NewUserComponent implements OnInit {
-
+  @Output() buildPlayerComponent = new EventEmitter<string>(); 
   constructor() { }
+
+  buildPlayer(email:string) {
+      this.buildPlayerComponent.emit(email);
+  }
 
   ngOnInit() {
   }

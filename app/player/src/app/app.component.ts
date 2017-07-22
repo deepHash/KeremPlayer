@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     loadedScreen = 'new-user';
+    userEmail:string;
+
+    changeComponent(email:string) {
+        this.userEmail = email;
+        this.loadedScreen = 'player';
+    }
 }
 

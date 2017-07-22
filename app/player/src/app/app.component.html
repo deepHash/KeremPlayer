@@ -1,4 +1,10 @@
 <router-outlet>
-    <app-new-user *ngIf="loadedScreen === 'new-user'"></app-new-user>
-    <app-player-container *ngIf="loadedScreen === 'player'"></app-player-container>
+    <app-new-user 
+    *ngIf="loadedScreen === 'new-user'"
+    (buildPlayerComponent)="changeComponent($event)"
+    ></app-new-user>
+    <app-player-container 
+    *ngIf="loadedScreen === 'player'"
+    [userEmail]="userEmail";
+    ></app-player-container>
 </router-outlet>

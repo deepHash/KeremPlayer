@@ -64,9 +64,9 @@ app.get('/getArtistBySong/:song_id', (req,res,next) => {
     });
 });
 
-//gets a users mix, params: user_id, mix_id
-app.get('/getMixByUserID/:user_id/:mix_id', (req,res,next) => {
-    data.getMixByUserID(req.params.user_id, req.params.mix_id).then((result,error) => {
+//gets a users mix, params: email, mix_id
+app.get('/getMixByUserID/:email/:mix_id', (req,res,next) => {
+    data.getMixByUserID(req.params.email, req.params.mix_id).then((result,error) => {
         res.status(200).json(result);
     }, (error) => {
         console.log(error);
@@ -85,8 +85,8 @@ app.get('/getSongsByArtist/:name', (req,res,next) => {
 });
  
 //removes a song from a users mix, params: user_id, mix_id, song_id
-app.get('/removeSongFromMix/:user_id/:mix_id/:song_id', (req,res,next) => {
-    data.removeSongFromMix(req.params.user_id, req.params.mix_id, 
+app.get('/removeSongFromMix/:email/:mix_id/:song_id', (req,res,next) => {
+    data.removeSongFromMix(req.params.email, req.params.mix_id, 
                             req.params.song_id).then((result,error) => {
         res.status(200).json(result);
     }, (error) => {
@@ -96,8 +96,8 @@ app.get('/removeSongFromMix/:user_id/:mix_id/:song_id', (req,res,next) => {
 });
 
 //adds a song to a users mix, params: user_id, mix_id, song_id
-app.get('/addSongToMix/:user_id/:mix_id/:song_id', (req,res,next) => {
-    data.addSongToMix(req.params.user_id, req.params.mix_id, 
+app.get('/addSongToMix/:email/:mix_id/:song_id', (req,res,next) => {
+    data.addSongToMix(req.params.email, req.params.mix_id, 
                             req.params.song_id).then((result,error) => {
         res.status(200).json(result);
     }, (error) => {

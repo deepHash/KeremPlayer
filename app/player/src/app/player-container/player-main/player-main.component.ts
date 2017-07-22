@@ -13,6 +13,7 @@ import { Song } from './../../shared/song.model';
 export class PlayerMainComponent implements OnChanges {
     //Inputs & Outputs
     @Input() addArtist:string;
+    @Input() userEmail:string = "itsesisx";
     @Output() songList = new EventEmitter<Song[]>();
     @Output() playThisSong = new EventEmitter<number>();
     //models and variables
@@ -63,7 +64,7 @@ export class PlayerMainComponent implements OnChanges {
     }
 
     addSong(songID:number) {
-        this.playerService.addSongToMix(this.userID, this.currentMixID, songID)
+        this.playerService.addSongToMix(this.userEmail, this.currentMixID, songID)
             .subscribe(res => {
                 if(res) {
                     this.buildSongByMix();
@@ -77,7 +78,7 @@ export class PlayerMainComponent implements OnChanges {
 
     removeSong(songID:any) {
         //let index = this.songs.indexOf();
-        this.playerService.removeSongFromMix(this.userID, this.currentMixID, songID)
+        this.playerService.removeSongFromMix(this.userEmail, this.currentMixID, songID)
             .subscribe(res => {
                 if (res) {
                     this.buildSongByMix();
@@ -86,8 +87,10 @@ export class PlayerMainComponent implements OnChanges {
     }
 
     buildSongByMix() {
-        this.playerService.getMixByUserID(this.userID,this.currentMixID)
+        console.log(this.userEmail);
+        this.playerService.getMixByUserID(this.userEmail,this.currentMixID)
             .subscribe(mixes => {
+                console.log(mixes);
                 this.mixes = mixes;
                 this.buildSongList(); 
             });   
