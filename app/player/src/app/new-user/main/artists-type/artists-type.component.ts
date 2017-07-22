@@ -9,8 +9,14 @@ import { Artist } from './../../../shared/artist.model';
 })
 export class ArtistsTypeComponent implements OnChanges {
   @Input() musicType:string;
+  @Output() featureSelected = new EventEmitter<string>();
   artists: Artist[];
   
+
+    onSelect(feature:string) {
+        this.featureSelected.emit(feature);
+        // console.log(feature);
+    }
   //@Output() artistSelected = new EventEmitter<string>(); 
   
 

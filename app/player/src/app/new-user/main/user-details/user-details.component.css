@@ -2,21 +2,19 @@
     width: 40vw;
     height: 300px;
     margin: 0 auto; 
-    margin-top:20.3%;
+    margin-top:35vh;
 }
 
 #name {
     background-image: url('/assets/redpoint.png');
-    width: 17vw;
-    background-image: url('/assets/redpoint.png');
-    width: 220px;
+    width: 17.2vw;
     height: 28px;
     background-repeat: no-repeat;
     background-position: right center;
     background-color: #373b3e;
     margin: 0 auto;
-    margin-left:17.1vw;
-    margin-top: 2.6vh;  
+    margin-left:16.9vw;
+    margin-top: 6vh;  
     padding-right:  50px;
     border-radius: 0px;
     border: 0;
@@ -28,9 +26,9 @@
     background-position: right center;
     margin: 0 auto;
     width: 100%;
-    height: 40px;  
-    margin-left:45%;
-    margin-top:5%;
+    height: 100%;  
+    margin-left:18vw;
+    margin-top:4vh;
 }
 
 #number {
@@ -45,20 +43,15 @@
 }
 
 #mail {
-<<<<<<< HEAD
     background-image: url('/assets/redpoint.png');
     width: 22.3vw;
-=======
-    background-image: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188/assets/loginbg/bg1.png/assets/redpoint.png');
-    width: 280px;
->>>>>>> preplay
     height: 28px;
     background-repeat: no-repeat;
     background-position: right center;
     background-color: #373b3e;
     margin: 0 auto;
     margin-left:25.2%;
-    margin-top:6.1%;  
+    margin-top:5vh;  
     padding-right:  50px;
     border-radius: 0px;
     border: 0;
@@ -74,6 +67,6 @@
     border-color: #ffffff;
     color:#ffffff;
     margin-left:20%;
-    margin-top:3.5%;
+    margin-top:8.5vh;
     border-radius: 10vw;
 }

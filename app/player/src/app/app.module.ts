@@ -19,6 +19,7 @@ import { NewUserComponent } from './new-user/new-user.component';
 import { SimilarMixesComponent } from './player-container/similar-mixes/similar-mixes.component';
 import { ArtistsTypeComponent } from './new-user/main/artists-type/artists-type.component';
 import { PlayerComponent } from './player-container/player/player.component';
+import { PasswordComponent } from './new-user/main/password/password.component';
 // import { YoutubePlayerModule } from 'ng2-youtube-player';
 
 @NgModule({
@@ -38,7 +39,8 @@ import { PlayerComponent } from './player-container/player/player.component';
     NewUserComponent,
     SimilarMixesComponent,
     ArtistsTypeComponent,
-    PlayerComponent
+    PlayerComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,

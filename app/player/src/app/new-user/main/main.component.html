@@ -4,17 +4,21 @@
         </app-join>
 
         <app-user-details (featureSelected)="pageStage($event)" 
-        *ngIf="(loadedFeature === 'details') || (loadedFeature === 'type') || (loadedFeature === 'artists')">
+        *ngIf="(loadedFeature === 'details') || (loadedFeature === 'type') || (loadedFeature === 'artists')|| (loadedFeature === 'pass')">
         </app-user-details>
 
         <app-music-type  
         (typeSelected)="typeStage($event)"
         (featureSelected)="pageStage($event)"  
-         *ngIf="loadedFeature === 'type' || (loadedFeature === 'artists')">
+         *ngIf="loadedFeature === 'type' || (loadedFeature === 'artists') || (loadedFeature === 'pass')">
         </app-music-type>
 
          <app-artists-type  (featureSelected)="pageStage($event)" 
-         *ngIf="loadedFeature === 'artists'"
+         *ngIf="loadedFeature === 'artists' || (loadedFeature === 'pass')"
          [musicType]="type">
-         </app-artists-type>
+         </app-artists-type >
+
+        <app-password  (featureSelected)="pageStage($event)" 
+         *ngIf="loadedFeature === 'pass'">
+        </app-password>
 </body>
