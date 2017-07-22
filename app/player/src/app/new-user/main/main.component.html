@@ -4,7 +4,11 @@
         </app-join>
 
         <app-user-details (featureSelected)="pageStage($event)" 
-        *ngIf="(loadedFeature === 'details') || (loadedFeature === 'type') || (loadedFeature === 'artists')|| (loadedFeature === 'pass')">
+        *ngIf="(loadedFeature === 'details') || 
+        (loadedFeature === 'type')           || 
+        (loadedFeature === 'artists')        || 
+        (loadedFeature === 'pass')"
+        (userDetails)="setUserDetails($event)">
         </app-user-details>
 
         <app-music-type  
@@ -13,12 +17,19 @@
          *ngIf="loadedFeature === 'type' || (loadedFeature === 'artists') || (loadedFeature === 'pass')">
         </app-music-type>
 
-         <app-artists-type  (featureSelected)="pageStage($event)" 
-         *ngIf="loadedFeature === 'artists' || (loadedFeature === 'pass')"
-         [musicType]="type">
+         <app-artists-type  
+         (featureSelected)="pageStage($event)" 
+         *ngIf="loadedFeature === 'artists' || 
+         (loadedFeature === 'pass')"
+         [musicType]="type"
+         (selectedArtists)="selectedArtistsByUser($event)">
          </app-artists-type >
-
-        <app-password  (featureSelected)="pageStage($event)" 
-         *ngIf="loadedFeature === 'pass'">
+         <div id="userName" *ngIf="loadedFeature === 'pass'">
+            <h1>{{userDetails.name}}</h1>
+         </div>
+        <app-password  
+        (featureSelected)="pageStage($event)" 
+         *ngIf="loadedFeature === 'pass'"
+         (userPassword)="setPassword($event)">
         </app-password>
 </body>

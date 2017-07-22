@@ -7,11 +7,16 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class PasswordComponent implements OnInit {
 @Output() featureSelected = new EventEmitter<string>();
+@Output() userPassword = new EventEmitter<string>();
 
     onSelect(feature:string) {
         this.featureSelected.emit(feature);
-        // console.log(feature);
     }
+
+    enterPassword(value:any) {
+      this.userPassword.emit(value.password);
+    }
+
   constructor() { }
 
   ngOnInit() {

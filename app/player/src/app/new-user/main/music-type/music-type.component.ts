@@ -12,12 +12,10 @@ export class MusicTypeComponent implements OnInit {
   
     onSelect(feature:string) {
         this.featureSelected.emit(feature);
-        // console.log(feature);
     }
 
     onSelectType(type:string) {
         this.typeSelected.emit(type);
-        // console.log(feature);
     }
   constructor() { }
 

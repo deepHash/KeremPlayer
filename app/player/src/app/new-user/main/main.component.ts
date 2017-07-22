@@ -1,13 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { PlayerService } from './../../services/player.service';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
+  providers: [PlayerService]
 })
 export class MainComponent {
+    //variables
     loadedFeature = 'join';
     type :string;
+    userDetails: any;
+    userPassword: any;
+    artistsSelected: any[];
     bgClasses = {
         'bg1':true,
         'bg2':false,
@@ -18,10 +24,12 @@ export class MainComponent {
         'bg7':false,
         'bg8':false,
     }
+    //End of variables
+
+    constructor(private playerService:PlayerService) { }
 
     typeStage(type:string) {
         this.type = type;
-        console.log(type);
     }
 
     pageStage(feature:string) {
@@ -59,8 +67,33 @@ export class MainComponent {
           this.bgClasses.bg8 = true;
         }
     }
-  constructor() { 
 
-  }
+    setUserDetails(details:any){
+      this.userDetails = details;    
+    }
+
+    setPassword(password:string){
+      this.userPassword = password;
+      this.newUserToService();
+    }
+
+    selectedArtistsByUser(artists:any[]) {
+      this.artistsSelected = artists;
+    }
+
+    newUserToService() {
+      let artists = [];
+      for(let i=0; i<this.artistsSelected.length; i++) {
+        this.playerService.getArtistbyName(this.artistsSelected[i])
+          .subscribe(artist => {
+              artists.push(artist);
+              console.log(artist);    
+          })
+      }
+
+      this.loadedFeature = 'player';
+    }
+
+  
 
 }

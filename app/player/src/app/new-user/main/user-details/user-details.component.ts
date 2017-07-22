@@ -7,12 +7,17 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class UserDetailsComponent implements OnInit {
 @Output() featureSelected = new EventEmitter<string>();
+@Output() userDetails = new EventEmitter<any>();
 
     onSelect(feature:string) {
         this.featureSelected.emit(feature);
         // console.log(feature);
     }
   constructor() { }
+
+  getUserDetails(value:any) {
+    this.userDetails.emit(value);
+  }
 
   ngOnInit() {
   }

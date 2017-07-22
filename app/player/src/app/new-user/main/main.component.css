@@ -53,3 +53,13 @@ body {
     background-image: url('/assets/loginbg/bg8.png');  
 }
 
+#userName {
+    display: flex;
+}
+
+#userName h1 {
+    margin: auto;
+    color: #fff;
+    size: 150%;
+}
+

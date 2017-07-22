@@ -18,7 +18,7 @@ export class PlayerService {
     }
 
     getArtistbyName(name) {
-        return this.http.get('https://kerem2017.herokuapp.com/getArtistbyName/%D7%A9%D7%A8%D7%99%D7%AA%20%D7%97%D7%93%D7%93')
+        return this.http.get(`${this.apiUrl}/getArtistbyName/${name}`)
             .map(res => res.json());
     }
 
