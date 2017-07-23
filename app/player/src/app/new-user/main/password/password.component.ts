@@ -6,6 +6,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./password.component.css']
 })
 export class PasswordComponent implements OnInit {
+  password:string = '';
 @Output() featureSelected = new EventEmitter<string>();
 @Output() userPassword = new EventEmitter<string>();
 

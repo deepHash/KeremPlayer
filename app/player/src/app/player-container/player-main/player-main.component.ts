@@ -13,7 +13,8 @@ import { Song } from './../../shared/song.model';
 export class PlayerMainComponent implements OnChanges {
     //Inputs & Outputs
     @Input() addArtist:string;
-    @Input() userEmail:string = "itsesisx";
+    @Input() userEmail:string;
+    @Input() otherUserMix;
     @Output() songList = new EventEmitter<Song[]>();
     @Output() playThisSong = new EventEmitter<number>();
     //models and variables
@@ -21,8 +22,8 @@ export class PlayerMainComponent implements OnChanges {
     singleArtist: Artist[];
     mixes: Mix;
     songs = [];
+    currentEmail:string = "itsesisx";
     currentMixID: number = 1; //static assignment for now
-    userID: number = 1;        //@ToDo take parameter from father
     //END of variables
 
     //c'tor
@@ -64,12 +65,33 @@ export class PlayerMainComponent implements OnChanges {
     }
 
     addSong(songID:number) {
-        this.playerService.addSongToMix(this.userEmail, this.currentMixID, songID)
+        let i;
+        let songExists:boolean = false;
+        //checks if song already in the list
+        //if its not add to view and add to DB
+        this.playerService.getSongByID(songID)
             .subscribe(res => {
-                if(res) {
-                    this.buildSongByMix();
+                for(i=0; i<this.songs.length; i++) {
+                    if(this.songs[i].id == songID){
+                       songExists = true;
+                    }
                 }
-            });
+                if(songExists == false) {
+                    //getting the artist song and adding all song details in the view
+                    this.playerService.getArtistBySong(songID)
+                        .subscribe(artist => {
+                            res.artist = artist[0].name;
+                        });
+                    this.songs.push(res)
+                    this.playerService.addSongToMix(this.currentEmail, this.currentMixID, songID)
+                        .subscribe(res => {
+                            if(!res) {
+                                console.log(res)
+                            }
+                    });
+                }
+            })
+            console.log(this.songs);
     }
 
     playSong(songID:any) {
@@ -77,20 +99,20 @@ export class PlayerMainComponent implements OnChanges {
     }
 
     removeSong(songID:any) {
-        //let index = this.songs.indexOf();
-        this.playerService.removeSongFromMix(this.userEmail, this.currentMixID, songID)
+        for(let i=0; i<this.songs.length; i++) {
+            if(this.songs[i].id == songID){
+                this.songs.splice(i,1);
+            }
+        }
+        this.playerService.removeSongFromMix(this.currentEmail, this.currentMixID, songID)
             .subscribe(res => {
-                if (res) {
-                    this.buildSongByMix();
-                }
+                console.log(res);
             });
     }
 
     buildSongByMix() {
-        console.log(this.userEmail);
-        this.playerService.getMixByUserID(this.userEmail,this.currentMixID)
+        this.playerService.getMixByUserID(this.currentEmail,this.currentMixID)
             .subscribe(mixes => {
-                console.log(mixes);
                 this.mixes = mixes;
                 this.buildSongList(); 
             });   
@@ -103,6 +125,13 @@ export class PlayerMainComponent implements OnChanges {
                       this.addSong(song.id);
             });
         }
-        this.playerService == null;
+        if (this.userEmail !=null){
+            this.currentEmail = this.userEmail;
+        }
+
+        if (this.otherUserMix != null) {
+            this.mixes = this.otherUserMix;
+            this.buildSongList();
+        }
     } 
 }

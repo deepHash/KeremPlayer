@@ -18,7 +18,7 @@ ul li:hover {
 }
 
 .bullet {
-    content: url('/assets/player/bullet.png');
+    content: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188/assets/player/bullet.png');
     float:right;
     width: 19px;
     height: 19px;

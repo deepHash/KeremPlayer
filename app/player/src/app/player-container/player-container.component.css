@@ -6,7 +6,7 @@ body {
 }
 
 #decorations {
-    background-image: url('/assets/decorations.png');
+    background-image: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188/assets/decorations.png');
     background-size: 100%;
     background-repeat: no-repeat;
     padding-top: 15px;

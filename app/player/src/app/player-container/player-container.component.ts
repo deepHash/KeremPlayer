@@ -22,6 +22,7 @@ export class PlayerContainerComponent implements OnInit {
   songlist: Song[];
   time:number = 0;
   playing:boolean;
+  otherUserMix;
   constructor(private playerService: PlayerService) { }
 
   //setting the songlist the recieved from son component (player-main)
@@ -37,17 +38,22 @@ export class PlayerContainerComponent implements OnInit {
   }
 
   playDemo(name: string) {
-      // let demo = new Audio();
-      // this.playerService.getBestSong(name)
-      //     .subscribe( song => {
-      //         demo.src = song.src;
-      //     });
-      //  this.pause("status");
-      //  demo.load();
-      //  demo.currentTime = 1;
-      //  demo.play();
-      //  setTimeout( () => 3000);
-      //  //demo.pause();
+      let demo = new Audio();
+      let playedBefore:boolean = false;
+      this.playerService.getBestSong(name)
+          .subscribe( song => {
+              demo.src = song.src;
+          });
+       if (this.playing == true){
+           this.pause("status");
+           playedBefore = true;
+       }
+       demo.load();
+       demo.currentTime = 100;
+       demo.play();
+       setTimeout(() => demo.pause(), 6000);
+       if (playedBefore == true)
+           setTimeout(() => this.play("status"), 9000);
   }
 
   //loading the section that recieved from sidebar
@@ -80,7 +86,6 @@ export class PlayerContainerComponent implements OnInit {
           if (this.playing == true)
               this.play("state");
       }
-      console.log(`current song: ${this.currentSong} and time is: ${this.time}`);
   }
   //prev function, checking to see if there are previous songs, if not skip, if yes
   // lower currentsong counter and set time to zero, if in state of playing and not pause
@@ -91,7 +96,6 @@ export class PlayerContainerComponent implements OnInit {
           this.currentSong--;    
           if (this.playing == true)
               this.play("state");
-          console.log(`current song: ${this.currentSong} and time is: ${this.time}`);
       }
   }
 
@@ -104,6 +108,10 @@ export class PlayerContainerComponent implements OnInit {
                   this.play("state");
           }
       }
+  }
+
+  addOtherMix(song) {
+      this.otherUserMix = song;
   }
 
   ngOnInit() {

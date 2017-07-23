@@ -7,9 +7,16 @@
 }
 
 #name {
+<<<<<<< HEAD
     /*position: absolute;*/
     background-image: url('/assets/redpoint.png');
     width: 35.8%;
+=======
+    position: relative;
+    background-image: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188/assets/redpoint.png');
+    width: 35.9%;
+    height: 28px;
+>>>>>>> angulardd
     background-repeat: no-repeat;
     background-position: right center;
     background-color: #373b3e;
@@ -49,9 +56,9 @@
 
 #mail {
     /*position: absolute;*/
-    background-image: url('/assets/redpoint.png');
     width: 46%;
     height: 0%;
+    background-image: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188/assets/redpoint.png');
     background-repeat: no-repeat;
     background-position: right center;
     background-color: #373b3e;
