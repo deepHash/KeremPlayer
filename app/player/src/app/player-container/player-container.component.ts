@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, DoCheck, AfterViewChecked, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, Input, Output, DoCheck, AfterViewChecked, AfterContentChecked } from '@angular/core';
 import { Artist } from './../shared/artist.model';
 import { Mix } from './../shared/mix.model';
 import { Song } from './../shared/song.model';
@@ -23,6 +23,7 @@ export class PlayerContainerComponent implements OnInit {
   time:number = 0;
   playing:boolean;
   otherUserMix;
+  resetPlayList = false;
   constructor(private playerService: PlayerService) { }
 
   //setting the songlist the recieved from son component (player-main)
@@ -58,7 +59,11 @@ export class PlayerContainerComponent implements OnInit {
 
   //loading the section that recieved from sidebar
   onNav(section: string) {
-      this.loadedSection = section;
+      if (section != "myPlaylist")
+          this.loadedSection = section;
+      else {
+          this.resetPlayList = true;
+      }
   }
 
   //play function, will load the current song if it has been paused it will 

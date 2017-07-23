@@ -38,10 +38,9 @@ export class MainComponent {
 
     pageStage(feature:string) {
         this.loadedFeature = feature;
-        this.changeBG();
     }
 
-    changeBG() {
+    changeBG(feature) {
         if (this.bgClasses.bg1 === true){
           this.bgClasses.bg1 = false;
           this.bgClasses.bg2 = true;
@@ -86,23 +85,23 @@ export class MainComponent {
     }
 
     newUserToService() {
-      let songs = [];
-      for(let i=0; i<this.artistsSelected.length; i++) {
-        this.playerService.getArtistbyName(this.artistsSelected[i])
-          .subscribe(artist => {
-              for(let j=0; j<artist[0].songs.length; j++) {
-                songs.push(artist[0].songs[j].id);
-              }  
-          })
-      }
-      let birthday = `${this.userDetails.day}/${this.userDetails.month}/${this.userDetails.year}`;
-      let mix = []; 
-      mix.push(new Mix(null, 1, "המיקסטייפ הראשון שלי","",this.type,songs));
-      let user = new User(this.userDetails.name,this.userDetails.email,birthday,this.userPassword,this.type,mix);
-      this.playerService.createNewUser(JSON.stringify(user))
-        .subscribe(res => {
-          console.log(`result in create user ${res}`);
-        })
+      // let songs = [];
+      // for(let i=0; i<this.artistsSelected.length; i++) {
+      //   this.playerService.getArtistbyName(this.artistsSelected[i])
+      //     .subscribe(artist => {
+      //         for(let j=0; j<artist[0].songs.length; j++) {
+      //           songs.push(artist[0].songs[j].id);
+      //         }  
+      //     })
+      // }
+      // let birthday = `${this.userDetails.day}/${this.userDetails.month}/${this.userDetails.year}`;
+      // let mix = []; 
+      // mix.push(new Mix(null, 1, "המיקסטייפ הראשון שלי","",this.type,songs));
+      // let user = new User(this.userDetails.name,this.userDetails.email,birthday,this.userPassword,this.type,mix);
+      // this.playerService.createNewUser(JSON.stringify(user))
+      //   .subscribe(res => {
+      //     console.log(`result in create user ${res}`);
+      //   })
       this.finishedUserDetails.emit(this.userDetails.email);
     }
 

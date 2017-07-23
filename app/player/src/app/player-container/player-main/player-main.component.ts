@@ -15,6 +15,7 @@ export class PlayerMainComponent implements OnChanges {
     @Input() addArtist:string;
     @Input() userEmail:string;
     @Input() otherUserMix;
+    @Input() resetPlayList;
     @Output() songList = new EventEmitter<Song[]>();
     @Output() playThisSong = new EventEmitter<number>();
     //models and variables
@@ -132,6 +133,11 @@ export class PlayerMainComponent implements OnChanges {
         if (this.otherUserMix != null) {
             this.mixes = this.otherUserMix;
             this.buildSongList();
+        }
+        if (this.resetPlayList != null) {
+            if (this.resetPlayList == true){
+                this.buildSongByMix();
+            }
         }
     } 
 }

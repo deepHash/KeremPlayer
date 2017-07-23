@@ -1,9 +1,12 @@
 <body [ngClass]="bgClasses" class="row">
 
-        <app-join (featureSelected)="pageStage($event)" >
+        <app-join
+        (featureSelected)="changeBG($event)" 
+        (featureSelected)="pageStage($event)">
         </app-join>
 
-        <app-user-details (featureSelected)="pageStage($event)" 
+        <app-user-details (featureSelected)="pageStage($event)"
+        (featureSelected)="changeBG($event)" 
         *ngIf="(loadedFeature === 'details') || 
         (loadedFeature === 'type')           || 
         (loadedFeature === 'artists')        || 
@@ -11,13 +14,15 @@
         (userDetails)="setUserDetails($event)">
         </app-user-details>
 
-        <app-music-type  
+        <app-music-type
+        (featureSelected)="changeBG($event)"  
         (typeSelected)="typeStage($event)"
         (featureSelected)="pageStage($event)"  
          *ngIf="loadedFeature === 'type' || (loadedFeature === 'artists') || (loadedFeature === 'pass')">
         </app-music-type>
 
-         <app-artists-type  
+         <app-artists-type
+          (featureSelected)="changeBG($event)"  
          (featureSelected)="pageStage($event)" 
          *ngIf="loadedFeature === 'artists' || 
          (loadedFeature === 'pass')"
