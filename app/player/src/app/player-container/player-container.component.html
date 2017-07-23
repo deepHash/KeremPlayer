@@ -15,7 +15,8 @@
                     (songList)="setSongList($event)"
                     (playThisSong)="switchSong($event)"
                     [addArtist]="artistName"
-                    [userEmail]="userEmail">    
+                    [userEmail]="userEmail"
+                    [otherUserMix]="otherUserMix">    
                 </player-main>
                 <app-player
                     *ngIf="loadedSection ==='player'"
@@ -23,7 +24,8 @@
                     (pauseSong)="pause($event)"
                     (nextSong)="next($event)"
                     (prevSong)="prev($event)"
-                    [currentSong]="songlist[currentSong]">   
+                    [currentSong]="songlist[currentSong]"
+                    >   
                 </app-player>
             </div>
             <div class="col-md-3 col-lg-3" id="sideNav" >
@@ -45,7 +47,8 @@
             <div class="col">
                 <app-similar-artists
                 (artistSelected)="addArtist($event)"
-                (artistPlayDemo)="playDemo($event)"></app-similar-artists>
+                (artistPlayDemo)="playDemo($event)"
+                ></app-similar-artists>
             </div>
         </div><!-- similar artists row -->
          <div class="row">
@@ -60,7 +63,8 @@
         </div><!-- row -->
         <div class="row">
             <div class="col">
-                <app-similar-mixes></app-similar-mixes>
+                <app-similar-mixes
+                (otherMix)="addOtherMix($event)"></app-similar-mixes>
             </div>
         </div>
     </div>

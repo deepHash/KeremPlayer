@@ -9,15 +9,19 @@ header{
     float:right;
 }
 
+#current {
+    color: #808080;
+}
+
 
 #logo {
-    content: url('/assets/header_logo.png');
+    content: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188/assets/header_logo.png');
     width: 90px;
     height: 40px;
 }
 
 #search {
-    background-image:url('/assets/search.png');
+    background-image:url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188/assets/search.png');
     background-repeat:no-repeat;
     background-position:left center;outline:0;
     background-color: #303437;
@@ -30,6 +34,7 @@ a{
     text-decoration: none;
     color: #fff;
     padding: 15px;
+    cursor: pointer;
 }
 
 @media (min-width: 1400px) {

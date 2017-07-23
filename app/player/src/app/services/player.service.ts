@@ -58,7 +58,12 @@ export class PlayerService {
     }
 
     createNewUser(user) {
-        return this.http.post(`${this.apiUrl}/createNewUser`, {user:user})
+        return this.http.get(`http://localhost:3000/createNewUser/${user}`)
+            .map(res => res.json())
+    }
+
+    addLike(song_id) {
+        return this.http.get(`${this.apiUrl}/addLike/${song_id}`)
             .map(res => res.json())
     }    
 }

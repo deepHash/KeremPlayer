@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PlayerService } from './../../services/player.service';
 import { Artist } from './../../shared/artist.model';
 import { Mix } from './../../shared/mix.model';
@@ -13,6 +13,7 @@ import { Song } from './../../shared/song.model';
 export class SimilarMixesComponent {
     //variables and models
     mixes: Mix[] = [];
+    @Output() otherMix = new EventEmitter<any>();
     //END of variables
   constructor(public playerService:PlayerService) { 
       this.playerService.getMixes()
@@ -20,6 +21,8 @@ export class SimilarMixesComponent {
               for(let i = 0; i < mixes.length; i++) {
                   let artist = mixes[i].name;
                   let musicType = mixes[i].musictype;
+                  //in certain user has more than one mix this will loop for it
+                  // and get all the mixes under his name
                   for(let j = 0; j< mixes[i].mixes.length; j++) {
                       let id = mixes[i].mixes[j].id;
                       let name = mixes[i].mixes[j].name;
@@ -31,6 +34,10 @@ export class SimilarMixesComponent {
               }
        });
 
+  }
+
+  addMix(mix) {
+      this.otherMix.emit(mix)
   }
               
 }

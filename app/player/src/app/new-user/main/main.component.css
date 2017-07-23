@@ -11,7 +11,7 @@ body {
 
 
 .bg1 {
-    background-image: url("/assets/loginbg/bg1.png");  
+    background-image: url("http://shenkar.html5-book.co.il/2016-2017/rs/dev_188/assets/loginbg/bg1.png");  
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -19,38 +19,38 @@ body {
 .bg2 {
     background-size: 100%;
     background-repeat: no-repeat;
-    background-image: url('/assets/loginbg/bg2.png');  
+    background-image: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188//assets/loginbg/bg2.png');  
 }
 
 .bg3 {
     background-size: 100%;
     background-repeat: no-repeat;
-    background-image: url('/assets/loginbg/bg3.png');  
+    background-image: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188//assets/loginbg/bg3.png');  
 }
 .bg4 {
     background-size: 100%;
     background-repeat: no-repeat;
-    background-image: url('/assets/loginbg/bg4.png');  
+    background-image: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188//assets/loginbg/bg4.png');  
 }
 .bg5 {
     background-size: 100%;
     background-repeat: no-repeat;
-    background-image: url('/assets/loginbg/bg5.png');  
+    background-image: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188//assets/loginbg/bg5.png');  
 }
 .bg6 {
     background-size: 100%;
     background-repeat: no-repeat;
-    background-image: url('/assets/loginbg/bg6.png');  
+    background-image: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188//assets/loginbg/bg6.png');  
 }
 .bg7 {
     background-size: 100%;
     background-repeat: no-repeat;
-    background-image: url('/assets/loginbg/bg7.png');  
+    background-image: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188//assets/loginbg/bg7.png');  
 }
 .bg8 {
     background-size: 100%;
     background-repeat: no-repeat;
-    background-image: url('/assets/loginbg/bg8.png');  
+    background-image: url('http://shenkar.html5-book.co.il/2016-2017/rs/dev_188//assets/loginbg/bg8.png');  
 }
 
 #userName {
