@@ -1,7 +1,6 @@
-.container{
-    margin-top: 45vh; 
-    width: 50vw;
-    margin-left: 25vw;
+.container{ 
+    width: 55%;
+    margin-left: 26%;
 }
 
 #name{
@@ -9,14 +8,13 @@
 }
 
 #done{
-    width: 7vw;
-    height: 35px;
+    width: 20%;
     background-color: #373b3e;
     border-color: #ffffff;
     color:#ffffff;
-    margin-left:20vw;
-    margin-top:3.5%;  
-    border-radius: 10vw;
+    margin-left:37%;
+    margin-top:5.5%;  
+    border-radius: 20px;
 }
 
 #artists {

@@ -8,14 +8,16 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class UserDetailsComponent implements OnInit {
 @Output() featureSelected = new EventEmitter<string>();
 @Output() userDetails = new EventEmitter<any>();
-disableButton: boolean = false;
+buttonClass = {
+  'disableButton':false
+}
 
     onSelect(feature:string) {
         this.featureSelected.emit(feature);
     }
-    disable(feature:string) {
+    continue(feature:string) {
         this.featureSelected.emit(feature);
-        this.disableButton=true;
+        this.buttonClass.disableButton=true;
     }
   constructor() { }
 

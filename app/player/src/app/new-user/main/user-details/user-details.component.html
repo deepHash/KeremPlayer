@@ -1,7 +1,7 @@
-<div class="clearfix" id="wrapper">
-            <form #form="ngForm" (ngSubmit)="getUserDetails(form.value)" class="form-horizontal">
+<div class="clearfix" id="wrapper" class="row">
+            <form #form="ngForm" (ngSubmit)="getUserDetails(form.value)" >
               <!-- <div class="form-group"> -->
-                <div>
+                <div class="col-12">
                   <input (click) = "onSelect('details')" type="text" class="form-control" id="name" placeholder="שם + שם משפחה" name="name" [(ngModel)]="name">
                 </div>
                         <label class="form-inline" id="year">
@@ -70,9 +70,9 @@
                 </div>
               <!-- </div> -->
               <div>
-              <button [disabled]= "disableButton" (click) = "disable('type')" type="submit" id="continue">המשך</button>
+              <button [ngClass]="buttonClass"  (click) = "continue('type')" type="submit" id="continue">המשך</button>
               </div>
             </form>
 </div>
    
-
+<!-- [disabled]= "disableButton" -->

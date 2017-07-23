@@ -2,16 +2,17 @@
 
 .clearfix.wrapper {
     text-align: center;
-    position: relative;
+    margin-top: 36%;
 }
 button {
-    position: relative;
     margin: 0 auto;
-    margin-top: 36%;
     width: 11%;
-    height: 56px;
+    height: 50px;
     border: solid 2px #ffffff ;
     background-color: #202528;
     color:#ffffff;
-    margin-bottom: 10%; 
+    margin-bottom: 60px; 
+}
+.disableButton {
+    display: none;
 }

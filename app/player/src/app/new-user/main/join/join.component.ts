@@ -7,12 +7,17 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class JoinComponent implements OnInit {
 @Output() featureSelected = new EventEmitter<string>();
-disableButton: boolean = false;
+
+
+buttonClass = {
+  'disableButton':false
+}
 
     onSelect(feature:string) {
         this.featureSelected.emit(feature);
-        this.disableButton=true;
+        this.buttonClass.disableButton=true;
     }
+
   constructor() { }
 
   ngOnInit() {

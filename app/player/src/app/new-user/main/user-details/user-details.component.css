@@ -1,62 +1,63 @@
 #wrapper {
-    position: relative;
+    /*position: absolute;*/
     width: 50%;
     height: 50%;
     margin: 0 auto; 
-    margin-top:10%;
+    margin-top:26.5%;
 }
 
 #name {
-    position: relative;
+    /*position: absolute;*/
     background-image: url('/assets/redpoint.png');
-    width: 35.9%;
-    height: 28px;
+    width: 35.8%;
     background-repeat: no-repeat;
     background-position: right center;
     background-color: #373b3e;
     margin: 0 auto;
     margin-left:43.5%;
-    margin-top: 8%;  
+    margin-top: 7%;  
     padding-right:  10%;
     border-radius: 0px;
     border: 0;
     text-align: right;
     color:#ffffff;
+    font-size: 100%;
 }
 
 #year {
-    position: relative;
+    /*position: absolute;*/
     background-position: right center;
     margin: 0 auto;
     width: 100%;
     height: 100%;  
-    margin-left:18vw;
-    margin-top:4vh;
+    margin-left:45%;
+    margin-top:5%;
 }
 
 #number {
-    position: relative;
-    width: 3.2vw;
-    height:35px;
-    margin-right: 20px;
+    /*position: absolute;*/
+    width: 7%;
+    margin-right: 2%;
     background-color: #373b3e;  
     border-radius: 0px;
     border-color: #fbb040;
     color:#ffffff;
     padding:  0;
+     font-size: 100%;
 }
 
+
 #mail {
-    position: relative;
+    /*position: absolute;*/
     background-image: url('/assets/redpoint.png');
-    width: 47%;
-    height: 28px;
+    width: 46%;
+    height: 0%;
     background-repeat: no-repeat;
     background-position: right center;
     background-color: #373b3e;
     margin: 0 auto;
-    margin-left:29%;
-    margin-top: 5.4%;  
+    margin-left:29.6%;
+    margin-top: 3%;  
     padding-right:  10%;
     border-radius: 0px;
     border: 0;
@@ -64,14 +65,21 @@
     color:#ffffff;
 }
 
+
 #continue{
-    position: relative;
+   /* position: absolute;*/
     width: 15%;
-    height: 35px;
+    height: 0%;
     background-color: #373b3e;
     border-color: #ffffff;
     color:#ffffff;
     margin-left:20%;
-    margin-top:8%;
+    margin-top:4%;
     border-radius: 10%;
+     font-size: 100%;
+}
+
+
+.disableButton {
+    display: none;
 }

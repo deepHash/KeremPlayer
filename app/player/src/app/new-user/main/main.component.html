@@ -1,4 +1,4 @@
-<body [ngClass]="bgClasses">
+<body [ngClass]="bgClasses" class="row">
 
         <app-join (featureSelected)="pageStage($event)" >
         </app-join>
@@ -28,7 +28,6 @@
             <h1>{{userDetails.name}}</h1>
          </div>
         <app-password  
-        (featureSelected)="pageStage($event)" 
          *ngIf="loadedFeature === 'pass'"
          (userPassword)="setPassword($event)">
         </app-password>

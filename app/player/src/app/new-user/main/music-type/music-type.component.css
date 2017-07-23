@@ -1,15 +1,16 @@
 .container{
-    width: 30vw;
-    
-    margin: 0 auto;
-    margin-top:9%;
+    width: 55%;
+    margin: 28%;
+    margin-top:14%;
 } 
 
-
+.disableButton {
+    display: none;
+}
 
 
 img{
-    width: 10vw;
+    width: 50%;
     
 }
 
